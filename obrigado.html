@@ -3,181 +3,365 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Compra Confirmada — Grupo Barbosa</title>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<title>Acesso Confirmado — Grupo Barbosa</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Cinzel:wght@400;600;700&display=swap" rel="stylesheet">
 <style>
 :root{
-  --navy:#1B2B4B; --navy-mid:#253860; --navy-light:#3A5080;
-  --gold:#C49A2A; --gold-light:#E8C46A; --gold-soft:#FDF8EC;
-  --white:#FFFFFF; --off-white:#F8F7F5; --beige:#F2EDE5;
-  --text:#1A1A1A; --text-muted:#5A5A5A; --border:rgba(0,0,0,.08);
-  --success:#1E5C2A; --success-light:#e8f5ea;
+  --ink:   #020810;
+  --bg:    #060F1B;
+  --bg2:   #081626;
+  --bg3:   #0A1C30;
+  --card:  rgba(255,255,255,.04);
+  --cardh: rgba(255,255,255,.07);
+  --border:rgba(255,255,255,.09);
+  --sv:    #B8C4CE;
+  --svd:   #8A96A2;
+  --svl:   #D6DDE4;
+  --svg:   rgba(184,196,206,.14);
+  --svf:   rgba(184,196,206,.07);
+  --svb:   rgba(184,196,206,.22);
+  --w:     #FFFFFF;
+  --muted: rgba(255,255,255,.54);
+  --subtle:rgba(255,255,255,.28);
+  --success:#1A9B5A;
+  --danger: #c62828;
+  --r:     12px;
 }
 *{box-sizing:border-box;margin:0;padding:0;}
-body{font-family:'DM Sans',sans-serif;background:var(--off-white);color:var(--text);}
+body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--w);}
 
 /* BARRA CONFIRMAÇÃO */
-.confirm-bar{background:var(--success);color:#fff;text-align:center;padding:14px 20px;font-size:15px;font-weight:600;letter-spacing:.02em;}
-.confirm-bar span{font-size:20px;margin-right:8px;}
+.confirm-bar{
+  background:linear-gradient(90deg,#0d2a1a,#0f3320,#0d2a1a);
+  border-bottom:1px solid rgba(26,155,90,.35);
+  color:#fff;text-align:center;padding:14px 24px;
+  font-size:14px;font-weight:600;letter-spacing:.03em;
+}
+.confirm-bar span{color:#4ade80;margin-right:8px;font-size:16px;}
 
 /* HEADER */
-header{background:var(--navy);padding:16px 40px;text-align:center;border-bottom:2px solid rgba(196,154,42,.3);}
-.logo{font-family:'Playfair Display',serif;font-size:20px;font-weight:700;color:#fff;}
-.logo em{color:var(--gold);font-style:normal;}
+header{
+  background:rgba(6,15,27,.92);
+  backdrop-filter:blur(12px);
+  border-bottom:1px solid var(--border);
+  padding:18px 48px;
+  display:flex;justify-content:center;align-items:center;
+}
+.logo{display:flex;align-items:center;gap:14px;text-decoration:none;}
+.logo-text{}
+.logo-name{
+  font-family:'Cinzel',serif;
+  font-size:14px;font-weight:600;
+  letter-spacing:.12em;color:var(--svl);
+  line-height:1;
+}
+.logo-dot{color:var(--sv);}
+.logo-sub{
+  font-size:9px;font-weight:500;
+  letter-spacing:.2em;text-transform:uppercase;
+  color:var(--svd);margin-top:4px;
+}
 
-/* URGENCIA */
-.urgencia{background:linear-gradient(135deg,#7a1010,#a31414);color:#fff;text-align:center;padding:16px 20px;}
-.urgencia p{font-size:14px;margin-bottom:6px;opacity:.9;}
-.urgencia strong{font-size:18px;display:block;margin-bottom:4px;}
-.timer-box{display:inline-block;background:rgba(0,0,0,.3);border-radius:8px;padding:8px 20px;font-size:28px;font-weight:700;font-family:'DM Sans',sans-serif;letter-spacing:.08em;}
-.urgencia .sub{font-size:12px;color:rgba(255,255,255,.65);margin-top:8px;}
+/* URGÊNCIA */
+.urgencia{
+  background:linear-gradient(135deg,#1a0808,#2a0e0e,#1a0808);
+  border-bottom:1px solid rgba(220,50,50,.25);
+  text-align:center;padding:20px 24px;
+}
+.urgencia p{font-size:13px;font-weight:500;color:rgba(255,255,255,.7);margin-bottom:8px;letter-spacing:.02em;}
+.timer-wrap{display:inline-flex;align-items:center;gap:8px;}
+.timer-label{font-size:12px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,100,100,.8);}
+.timer-box{
+  background:rgba(0,0,0,.5);
+  border:1px solid rgba(220,50,50,.4);
+  border-radius:8px;padding:8px 22px;
+  font-size:28px;font-weight:800;font-variant-numeric:tabular-nums;
+  color:#ff6b6b;letter-spacing:.06em;
+}
+.urgencia .sub{font-size:11px;color:rgba(255,255,255,.38);margin-top:10px;letter-spacing:.04em;}
 
-/* HERO OBRIGADO */
-.hero-obg{background:linear-gradient(135deg,var(--navy) 0%,var(--navy-mid) 100%);padding:56px 40px;text-align:center;position:relative;overflow:hidden;}
-.hero-obg::before{content:'';position:absolute;top:0;left:0;right:0;bottom:0;background:radial-gradient(ellipse at 60% 50%,rgba(196,154,42,.08),transparent 65%);}
-.hero-obg-inner{max-width:760px;margin:0 auto;position:relative;z-index:1;}
-.eyebrow{display:inline-block;background:rgba(196,154,42,.15);border:1px solid rgba(196,154,42,.4);color:var(--gold-light);font-size:11px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;padding:6px 16px;border-radius:20px;margin-bottom:22px;}
-.hero-obg h1{font-family:'Playfair Display',serif;font-size:clamp(24px,3.5vw,40px);font-weight:700;color:#fff;line-height:1.2;margin-bottom:18px;}
-.hero-obg h1 em{font-style:italic;color:var(--gold-light);}
-.hero-obg p{font-size:clamp(15px,1.6vw,17px);color:rgba(255,255,255,.75);line-height:1.7;max-width:640px;margin:0 auto;}
+/* HERO */
+.hero-obg{
+  background:linear-gradient(160deg,var(--bg3) 0%,var(--bg2) 60%,var(--bg) 100%);
+  border-bottom:1px solid var(--border);
+  padding:72px 48px 64px;text-align:center;position:relative;overflow:hidden;
+}
+.hero-obg::before{
+  content:'';position:absolute;inset:0;pointer-events:none;
+  background:
+    radial-gradient(ellipse 70% 60% at 80% 110%,rgba(120,150,185,.09) 0%,transparent 55%),
+    radial-gradient(ellipse 50% 50% at 20% 10%, rgba(12,40,80,.5) 0%,transparent 55%);
+}
+.hero-obg-inner{max-width:780px;margin:0 auto;position:relative;z-index:1;}
+.eyebrow-tag{
+  display:inline-flex;align-items:center;gap:8px;
+  background:var(--svf);
+  border:1px solid var(--svg);
+  color:var(--sv);
+  font-size:10px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;
+  padding:7px 18px;border-radius:40px;margin-bottom:28px;
+}
+.hero-obg h1{
+  font-size:clamp(26px,3.8vw,44px);font-weight:800;
+  color:var(--w);line-height:1.15;margin-bottom:20px;
+  letter-spacing:-.02em;
+}
+.hero-obg h1 em{font-style:italic;color:var(--svl);font-weight:700;}
+.hero-obg p{
+  font-size:clamp(15px,1.6vw,17px);font-weight:400;
+  color:var(--muted);line-height:1.75;max-width:660px;margin:0 auto;
+}
+.hero-obg p strong{color:var(--svl);font-weight:600;}
+
+/* SEÇÕES */
+section{padding:72px 48px;}
+.container{max-width:880px;margin:0 auto;}
+.sec-eyebrow{
+  font-size:10px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;
+  color:var(--svd);margin-bottom:10px;display:block;
+}
+.sec-title{
+  font-size:clamp(22px,3vw,32px);font-weight:800;
+  color:var(--w);margin-bottom:14px;line-height:1.15;letter-spacing:-.02em;
+}
 
 /* BRIDGE */
-section{padding:56px 40px;}
-.container{max-width:860px;margin:0 auto;}
-.sec-eyebrow{font-size:11px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin-bottom:12px;display:block;}
-.sec-title{font-family:'Playfair Display',serif;font-size:clamp(20px,2.8vw,30px);font-weight:700;color:var(--navy);margin-bottom:14px;line-height:1.2;}
-
-.bridge-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:32px;}
-.bridge-card{background:#fff;border-radius:14px;padding:28px;box-shadow:0 2px 16px rgba(0,0,0,.07);}
-.bridge-card.sem{border-top:4px solid #e53935;}
-.bridge-card.com{border-top:4px solid var(--success);}
-.bridge-card h4{font-family:'Playfair Display',serif;font-size:15px;font-weight:700;margin-bottom:14px;}
-.bridge-card.sem h4{color:#c62828;}
-.bridge-card.com h4{color:var(--success);}
+.bridge-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:36px;}
+.bridge-card{
+  background:var(--card);
+  border:1px solid var(--border);
+  border-radius:16px;padding:28px;
+}
+.bridge-card.sem{border-top:3px solid rgba(220,50,50,.6);}
+.bridge-card.com{border-top:3px solid rgba(184,196,206,.5);}
+.bridge-card h4{
+  font-size:13px;font-weight:700;letter-spacing:.04em;margin-bottom:16px;
+  text-transform:uppercase;
+}
+.bridge-card.sem h4{color:rgba(255,100,100,.8);}
+.bridge-card.com h4{color:var(--sv);}
 .bridge-card ul{list-style:none;padding:0;}
-.bridge-card ul li{font-size:14px;color:var(--text-muted);padding:5px 0 5px 22px;position:relative;line-height:1.5;border-bottom:1px solid var(--border);}
+.bridge-card ul li{
+  font-size:13px;color:var(--muted);
+  padding:7px 0 7px 22px;position:relative;line-height:1.55;
+  border-bottom:1px solid var(--border);
+}
 .bridge-card ul li:last-child{border-bottom:none;}
-.bridge-card.sem ul li::before{content:'✕';position:absolute;left:0;color:#e53935;font-weight:700;}
-.bridge-card.com ul li::before{content:'✓';position:absolute;left:0;color:var(--success);font-weight:700;}
+.bridge-card.sem ul li::before{content:'✕';position:absolute;left:0;color:rgba(220,50,50,.75);font-weight:700;}
+.bridge-card.com ul li::before{content:'✓';position:absolute;left:0;color:var(--sv);font-weight:700;}
 
 /* OFERTA UPSELL */
-.oferta{background:var(--navy);}
-.oferta-box{background:rgba(255,255,255,.05);border:1px solid rgba(196,154,42,.35);border-radius:20px;padding:44px;max-width:700px;margin:0 auto;}
-.oferta-box .ic{font-size:48px;text-align:center;display:block;margin-bottom:16px;}
-.oferta-box h2{font-family:'Playfair Display',serif;font-size:clamp(22px,3vw,32px);font-weight:700;color:#fff;text-align:center;margin-bottom:12px;line-height:1.2;}
-.oferta-box h2 em{font-style:italic;color:var(--gold-light);}
-.oferta-box .sub{font-size:16px;color:rgba(255,255,255,.7);text-align:center;line-height:1.65;margin-bottom:28px;}
-.inclui-list{list-style:none;padding:0;margin:0 0 28px;}
-.inclui-list li{display:flex;align-items:flex-start;gap:12px;padding:10px 0;font-size:15px;color:rgba(255,255,255,.85);border-bottom:1px solid rgba(255,255,255,.08);}
+.oferta-section{background:var(--bg2);border-top:1px solid var(--border);border-bottom:1px solid var(--border);}
+.oferta-box{
+  background:var(--card);
+  border:1px solid var(--border);
+  border-radius:20px;padding:52px;
+  max-width:720px;margin:0 auto;
+  position:relative;overflow:hidden;
+}
+.oferta-box::before{
+  content:'';position:absolute;inset:0;pointer-events:none;
+  background:radial-gradient(ellipse 80% 60% at 50% -10%,rgba(184,196,206,.05),transparent 55%);
+}
+.oferta-box-inner{position:relative;z-index:1;}
+.oferta-ic{
+  width:64px;height:64px;
+  background:var(--svf);
+  border:1px solid var(--svg);
+  border-radius:16px;
+  display:flex;align-items:center;justify-content:center;
+  font-size:28px;margin:0 auto 24px;
+}
+.oferta-box h2{
+  font-size:clamp(22px,3vw,34px);font-weight:800;
+  color:var(--w);text-align:center;margin-bottom:12px;
+  line-height:1.15;letter-spacing:-.02em;
+}
+.oferta-box h2 em{font-style:italic;color:var(--svl);}
+.oferta-box .sub{
+  font-size:15px;color:var(--muted);text-align:center;
+  line-height:1.7;margin-bottom:36px;max-width:580px;margin-left:auto;margin-right:auto;
+}
+.div-line{height:1px;background:var(--border);margin:0 0 32px;}
+.inclui-list{list-style:none;padding:0;margin:0 0 36px;}
+.inclui-list li{
+  display:flex;align-items:flex-start;gap:14px;
+  padding:11px 0;font-size:14px;color:rgba(255,255,255,.8);
+  border-bottom:1px solid var(--border);line-height:1.55;
+}
 .inclui-list li:last-child{border-bottom:none;}
-.inclui-list .ck{color:var(--gold-light);font-size:16px;flex-shrink:0;margin-top:1px;}
-.preco-bloco{text-align:center;margin-bottom:28px;}
-.preco-old{font-size:14px;color:rgba(255,255,255,.4);text-decoration:line-through;margin-bottom:4px;}
-.preco-parc{font-size:22px;font-weight:700;color:var(--gold-light);margin-bottom:4px;}
-.preco-avista{font-size:13px;color:rgba(255,255,255,.5);}
+.inclui-list .ck{
+  width:20px;height:20px;flex-shrink:0;
+  background:var(--svf);border:1px solid var(--svg);
+  border-radius:50%;display:flex;align-items:center;justify-content:center;
+  font-size:10px;color:var(--sv);font-weight:700;margin-top:1px;
+}
+.preco-bloco{
+  text-align:center;
+  background:var(--svf);
+  border:1px solid var(--svg);
+  border-radius:14px;padding:24px;margin-bottom:28px;
+}
+.preco-old{font-size:13px;color:var(--subtle);text-decoration:line-through;margin-bottom:4px;}
+.preco-parc{font-size:24px;font-weight:800;color:var(--svl);margin-bottom:4px;letter-spacing:-.01em;}
+.preco-avista{font-size:12px;color:var(--muted);}
 
-/* Botão Kiwify 1-clique — wrapper */
+/* Botão upsell */
 .kiwify-btn-area{text-align:center;}
-
-/* Override visual para o botão do Kiwify — substitua XXXXXXX pelo ID real */
 #kiwify-upsell-trigger-XXXXXXX{
   display:block !important;
   width:100% !important;
-  max-width:480px !important;
+  max-width:500px !important;
   margin:0 auto 14px !important;
   padding:19px 28px !important;
-  background:var(--gold) !important;
-  color:var(--navy) !important;
-  font-family:'DM Sans',sans-serif !important;
-  font-size:17px !important;
+  background:var(--sv) !important;
+  color:var(--ink) !important;
+  font-family:'Inter',sans-serif !important;
+  font-size:16px !important;
   font-weight:700 !important;
   border:none !important;
   border-radius:10px !important;
   cursor:pointer !important;
-  box-shadow:0 6px 30px rgba(196,154,42,.45) !important;
+  letter-spacing:.01em !important;
+  box-shadow:0 6px 32px rgba(184,196,206,.25) !important;
   transition:background .2s,transform .15s !important;
-  letter-spacing:.02em !important;
 }
 #kiwify-upsell-trigger-XXXXXXX:hover{
-  background:var(--gold-light) !important;
+  background:var(--svl) !important;
   transform:translateY(-2px) !important;
 }
 #kiwify-upsell-cancel-trigger-XXXXXXX{
   display:block !important;
   text-align:center !important;
-  font-size:13px !important;
-  color:rgba(255,255,255,.35) !important;
-  font-family:'DM Sans',sans-serif !important;
+  font-size:12px !important;
+  color:var(--subtle) !important;
+  font-family:'Inter',sans-serif !important;
   text-decoration:none !important;
   cursor:pointer !important;
-  margin-top:4px !important;
+  margin-top:6px !important;
+  letter-spacing:.03em !important;
 }
-/* Fallback: botão genérico visível antes de configurar Kiwify */
-.btn-upsell-fallback{display:block;width:100%;max-width:480px;margin:0 auto 14px;padding:19px 28px;background:var(--gold);color:var(--navy);font-family:'DM Sans',sans-serif;font-size:17px;font-weight:700;border:none;border-radius:10px;cursor:pointer;box-shadow:0 6px 30px rgba(196,154,42,.45);transition:background .2s,transform .15s;letter-spacing:.02em;text-align:center;}
-.btn-upsell-fallback:hover{background:var(--gold-light);transform:translateY(-2px);}
-.btn-recusa{display:block;text-align:center;font-size:13px;color:rgba(255,255,255,.35);text-decoration:none;cursor:pointer;margin-top:8px;}
-.btn-recusa:hover{color:rgba(255,255,255,.55);}
-.seg-upsell{font-size:12px;color:rgba(255,255,255,.35);text-align:center;margin-top:14px;}
+.btn-upsell-fallback{
+  display:block;width:100%;max-width:500px;
+  margin:0 auto 14px;padding:19px 28px;
+  background:var(--sv);color:var(--ink);
+  font-family:'Inter',sans-serif;font-size:16px;font-weight:700;
+  border:none;border-radius:10px;cursor:pointer;
+  letter-spacing:.01em;
+  box-shadow:0 6px 32px rgba(184,196,206,.25);
+  transition:background .2s,transform .15s;text-align:center;
+}
+.btn-upsell-fallback:hover{background:var(--svl);transform:translateY(-2px);}
+.btn-recusa{
+  display:block;text-align:center;font-size:12px;
+  color:var(--subtle);text-decoration:none;cursor:pointer;
+  margin-top:8px;letter-spacing:.03em;
+  transition:color .2s;
+}
+.btn-recusa:hover{color:var(--muted);}
+.seg-upsell{
+  font-size:11px;color:var(--subtle);
+  text-align:center;margin-top:18px;letter-spacing:.04em;
+}
 
 /* GARANTIA */
-.gar-box{background:var(--gold-soft);border-radius:16px;padding:40px;max-width:640px;margin:0 auto;text-align:center;border:1px solid rgba(196,154,42,.3);}
-.gar-box .ic{font-size:48px;margin-bottom:16px;}
-.gar-box h3{font-family:'Playfair Display',serif;font-size:22px;color:var(--navy);margin-bottom:10px;}
-.gar-box p{font-size:15px;color:var(--text-muted);line-height:1.7;}
+.gar-section{background:var(--bg3);border-top:1px solid var(--border);}
+.gar-box{
+  background:var(--card);
+  border:1px solid var(--border);
+  border-radius:16px;padding:40px;
+  max-width:640px;margin:0 auto;text-align:center;
+}
+.gar-ic{font-size:40px;margin-bottom:16px;}
+.gar-box h3{
+  font-size:20px;font-weight:700;
+  color:var(--svl);margin-bottom:10px;letter-spacing:-.01em;
+}
+.gar-box p{font-size:14px;color:var(--muted);line-height:1.75;}
 
 /* FOOTER */
-footer{background:#111b2c;color:rgba(255,255,255,.4);text-align:center;padding:28px 40px;font-size:13px;line-height:1.7;}
-footer strong{color:rgba(255,255,255,.7);}
+footer{
+  background:var(--ink);
+  border-top:1px solid var(--border);
+  color:var(--subtle);text-align:center;
+  padding:32px 48px;font-size:12px;line-height:1.8;letter-spacing:.02em;
+}
+footer strong{color:var(--svd);}
 
-@media(max-width:640px){
-  header{padding:14px 20px;}
-  section{padding:44px 20px;}
-  .hero-obg{padding:48px 20px;}
+@media(max-width:700px){
+  header{padding:16px 24px;}
+  section{padding:52px 24px;}
+  .hero-obg{padding:56px 24px;}
   .bridge-grid{grid-template-columns:1fr;}
-  .oferta-box{padding:28px 20px;}
+  .oferta-box{padding:28px 22px;}
+  .gar-box{padding:28px 22px;}
 }
 </style>
 </head>
 <body>
 
 <!-- BARRA DE CONFIRMAÇÃO -->
-<div class="confirm-bar"><span>✅</span> Compra confirmada! Seu acesso está sendo preparado.</div>
+<div class="confirm-bar">
+  <span>✓</span> Compra confirmada. Seu acesso está sendo enviado para o e-mail cadastrado.
+</div>
 
 <!-- HEADER -->
 <header>
-  <div class="logo">Grupo <em>Barbosa</em> — Gestão Tributária</div>
+  <a class="logo" href="#">
+    <svg width="34" height="43" viewBox="0 0 52 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <rect x="1" y="1" width="50" height="50" stroke="#B8C4CE" stroke-width="1.1" fill="none"/>
+      <rect x="3.5" y="3.5" width="45" height="45" stroke="#B8C4CE" stroke-width=".45" fill="none" opacity=".4"/>
+      <path d="M9 8 H43 V31 Q43 43 26 49.5 Q9 43 9 31 Z" stroke="#B8C4CE" stroke-width="1.05" fill="rgba(184,196,206,.04)"/>
+      <line x1="9" y1="21.5" x2="43" y2="21.5" stroke="#B8C4CE" stroke-width=".75" opacity=".75"/>
+      <line x1="26" y1="10" x2="26" y2="21" stroke="#B8C4CE" stroke-width="1.25" stroke-linecap="round"/>
+      <line x1="21" y1="10" x2="21" y2="15.5" stroke="#B8C4CE" stroke-width="1" stroke-linecap="round"/>
+      <line x1="31" y1="10" x2="31" y2="15.5" stroke="#B8C4CE" stroke-width="1" stroke-linecap="round"/>
+      <path d="M21 10.5 Q26 8 31 10.5" stroke="#B8C4CE" stroke-width=".7" fill="none"/>
+      <path d="M14 25.5 Q26 36.5 38 25.5" stroke="#B8C4CE" stroke-width=".95" fill="none"/>
+      <line x1="26" y1="36.5" x2="26" y2="43" stroke="#B8C4CE" stroke-width=".9" stroke-linecap="round" opacity=".7"/>
+      <path d="M7 53.5 Q2.5 46 5.5 37" stroke="#B8C4CE" stroke-width=".9" fill="none" opacity=".55"/>
+      <path d="M45 53.5 Q49.5 46 46.5 37" stroke="#B8C4CE" stroke-width=".9" fill="none" opacity=".55"/>
+      <path d="M26 57 L23.5 53.5 L26 56 L28.5 53.5 Z" fill="#B8C4CE" opacity=".6"/>
+    </svg>
+    <div class="logo-text">
+      <div class="logo-name">Grupo Barbosa<span class="logo-dot">.</span></div>
+      <div class="logo-sub">Gestão Tributária</div>
+    </div>
+  </a>
 </header>
 
 <!-- URGÊNCIA + TIMER -->
 <div class="urgencia">
-  <p>Esta oferta é exclusiva para quem acabou de comprar e expira em:</p>
-  <div class="timer-box" id="timer">10:00</div>
-  <p class="sub">Após este tempo, esta página não estará mais disponível neste valor</p>
+  <p>Esta oferta exclusiva está disponível apenas nesta página e expira em:</p>
+  <div class="timer-wrap">
+    <div class="timer-box" id="timer">10:00</div>
+  </div>
+  <p class="sub">Após este tempo, a oferta não estará mais disponível neste valor</p>
 </div>
 
-<!-- HERO OBRIGADO -->
+<!-- HERO -->
 <div class="hero-obg">
   <div class="hero-obg-inner">
-    <span class="eyebrow">Oferta Única — Apenas Nesta Página</span>
-    <h1>Você entendeu a Reforma.<br>Agora, <em>e o seu negócio especificamente?</em></h1>
-    <p>O guia te dá o mapa. O <strong>Diagnóstico Tributário Express</strong> te diz exatamente onde o seu negócio está, o que precisa mudar e o que você pode aproveitar — em 90 minutos de análise personalizada com um especialista do Grupo Barbosa.</p>
+    <div class="eyebrow-tag">Oferta Única — Apenas Nesta Página</div>
+    <h1>Você entendeu a Reforma.<br>E agora, <em>o que fazer com o seu negócio?</em></h1>
+    <p>O guia te dá o mapa da Reforma Tributária. O <strong>Diagnóstico Express</strong> te mostra exatamente onde a sua empresa está — o que muda, o que você perde, o que você pode aproveitar — em 90 minutos com um especialista do Grupo Barbosa.</p>
   </div>
 </div>
 
 <!-- BRIDGE ANTES / DEPOIS -->
-<section style="background:var(--beige);">
+<section style="background:var(--bg3);border-top:1px solid var(--border);border-bottom:1px solid var(--border);">
   <div class="container">
-    <span class="sec-eyebrow">O que muda com o Diagnóstico</span>
-    <h2 class="sec-title">Sem diagnóstico vs. Com diagnóstico</h2>
+    <span class="sec-eyebrow">Diferença concreta</span>
+    <h2 class="sec-title">Sem o Diagnóstico vs. Com o Diagnóstico</h2>
     <div class="bridge-grid">
       <div class="bridge-card sem">
         <h4>✕ Sem o Diagnóstico</h4>
         <ul>
           <li>Você sabe a teoria, mas não sabe o impacto real no seu negócio</li>
-          <li>Precificação feita no chute para o novo cenário</li>
+          <li>Precificação feita no chute para o novo cenário tributário</li>
           <li>Riscos específicos do seu setor ainda não mapeados</li>
-          <li>Dúvidas que o guia não resolve porque são específicas da sua empresa</li>
-          <li>Você espera o contador agir — sem uma visão estratégica anterior</li>
+          <li>Dúvidas que o guia não resolve por serem específicas da sua empresa</li>
+          <li>Você espera o contador agir — sem uma visão estratégica prévia</li>
         </ul>
       </div>
       <div class="bridge-card com">
@@ -185,9 +369,9 @@ footer strong{color:rgba(255,255,255,.7);}
         <ul>
           <li>Análise do impacto real da reforma no seu faturamento e margem</li>
           <li>Estratégia de precificação para absorver ou aproveitar a mudança</li>
-          <li>Oportunidades tributárias específicas do seu setor identificadas</li>
-          <li>Perguntas respondidas, dúvidas eliminadas, plano na mão</li>
-          <li>Você entra na conversa com o contador já preparado</li>
+          <li>Oportunidades tributárias do seu setor identificadas e priorizadas</li>
+          <li>Perguntas respondidas, incertezas eliminadas, plano de ação na mão</li>
+          <li>Você entra na conversa com o contador já preparado e no controle</li>
         </ul>
       </div>
     </div>
@@ -195,57 +379,60 @@ footer strong{color:rgba(255,255,255,.7);}
 </section>
 
 <!-- OFERTA UPSELL -->
-<section class="oferta">
+<section class="oferta-section">
   <div class="container">
     <div class="oferta-box">
-      <span class="ic">🎯</span>
-      <h2>Diagnóstico Tributário Express<br><em>com o Grupo Barbosa</em></h2>
-      <p class="sub">90 minutos de análise personalizada com um especialista do Grupo Barbosa. Levamos o diagnóstico da sua empresa para o novo cenário tributário — com plano de ação na saída.</p>
-      <ul class="inclui-list">
-        <li><span class="ck">✓</span> Análise completa da sua carga tributária atual vs. cenário pós-reforma</li>
-        <li><span class="ck">✓</span> Mapeamento de riscos e oportunidades específicos do seu setor</li>
-        <li><span class="ck">✓</span> Estratégia de precificação para o período de transição</li>
-        <li><span class="ck">✓</span> Sessão de perguntas e respostas — sem perguntas que ficam sem resposta</li>
-        <li><span class="ck">✓</span> Relatório resumido enviado após a sessão</li>
-        <li><span class="ck">✓</span> Realizado por videoconferência (Zoom ou Meet) — sem deslocamento</li>
-      </ul>
-      <div class="preco-bloco">
-        <div class="preco-old">De R$497,00</div>
-        <div class="preco-parc">3x de R$69,00</div>
-        <div class="preco-avista">ou R$197,00 à vista — apenas nesta página</div>
-      </div>
+      <div class="oferta-box-inner">
+        <div class="oferta-ic">🎯</div>
+        <h2>Diagnóstico Tributário Express<br><em>com o Grupo Barbosa</em></h2>
+        <p class="sub">90 minutos de análise personalizada com um especialista do Grupo Barbosa. Avaliamos o impacto da Reforma na sua empresa e entregamos um plano de adequação — específico para o seu setor e regime tributário.</p>
+        <div class="div-line"></div>
+        <ul class="inclui-list">
+          <li><div class="ck">✓</div> Análise da carga tributária atual vs. cenário pós-reforma para a sua empresa</li>
+          <li><div class="ck">✓</div> Mapeamento de riscos e oportunidades específicos do seu setor</li>
+          <li><div class="ck">✓</div> Estratégia de precificação para o período de transição (2026–2033)</li>
+          <li><div class="ck">✓</div> Sessão Q&A completa — todas as suas dúvidas respondidas</li>
+          <li><div class="ck">✓</div> Relatório resumido enviado após a sessão</li>
+          <li><div class="ck">✓</div> Realizado por videoconferência (Zoom ou Meet) — sem deslocamento</li>
+        </ul>
+        <div class="preco-bloco">
+          <div class="preco-old">De R$497,00</div>
+          <div class="preco-parc">3x de R$69,00</div>
+          <div class="preco-avista">ou R$197,00 à vista — apenas nesta página</div>
+        </div>
 
-      <!--
-        INSTRUÇÕES DE INTEGRAÇÃO KIWIFY:
-        1. Kiwify → Produto principal → Gerador de Upsell → Selecionar produto "Diagnóstico Express"
-        2. Copiar o HTML gerado e colar abaixo (substitui o botão fallback)
-        3. Substituir XXXXXXX pelo ID real nos seletores CSS acima
-        4. Remover o botão .btn-upsell-fallback após configurar
-      -->
-      <div class="kiwify-btn-area">
-        <!-- SUBSTITUIR PELO HTML DA KIWIFY (1-clique) -->
-        <button class="btn-upsell-fallback">Sim! Quero o Diagnóstico Express — 3x R$69,00</button>
-        <a href="#" class="btn-recusa">Não, prefiro continuar sem o diagnóstico personalizado</a>
+        <!--
+          INTEGRAÇÃO KIWIFY:
+          1. Kiwify → Produto principal → Gerador de Upsell → Selecionar "Diagnóstico Express"
+          2. Copiar o HTML gerado e colar substituindo o botão fallback abaixo
+          3. Atualizar os seletores CSS #kiwify-upsell-trigger-XXXXXXX com o ID real
+          4. Remover o .btn-upsell-fallback após configurar
+        -->
+        <div class="kiwify-btn-area">
+          <!-- SUBSTITUIR PELO HTML DA KIWIFY (1-clique) -->
+          <button class="btn-upsell-fallback">Sim, quero o Diagnóstico Express — 3x R$69,00</button>
+          <a href="#" class="btn-recusa">Não, prefiro continuar sem o diagnóstico personalizado</a>
+        </div>
+        <p class="seg-upsell">🔒 Pagamento 100% seguro via Kiwify · Sem redigitar dados do cartão</p>
       </div>
-      <p class="seg-upsell">🔒 Pagamento seguro via Kiwify · Sem redigitar dados do cartão</p>
     </div>
   </div>
 </section>
 
 <!-- GARANTIA -->
-<section style="background:var(--off-white);padding:56px 40px;">
+<section class="gar-section">
   <div class="container">
     <div class="gar-box">
-      <div class="ic">🛡️</div>
+      <div class="gar-ic">🛡</div>
       <h3>Garantia de 7 Dias</h3>
-      <p>Esta oferta também está coberta pela nossa garantia. Se por qualquer motivo você não ficar satisfeito com a sessão de diagnóstico, devolvemos 100% — sem perguntas.</p>
+      <p>Esta oferta está coberta pela nossa garantia incondicional. Se por qualquer motivo você não ficar satisfeito com a sessão de diagnóstico, devolvemos 100% do valor — sem perguntas, sem burocracia.</p>
     </div>
   </div>
 </section>
 
 <footer>
   <p><strong>Grupo Barbosa — Gestão Tributária</strong></p>
-  <p>Este material tem caráter educacional e informativo. Para consultoria personalizada, o Diagnóstico Tributário Express está disponível acima.</p>
+  <p>Este material tem caráter educacional e informativo.<br>Para consultoria personalizada, o Diagnóstico Tributário Express está disponível acima.</p>
 </footer>
 
 <script>
