@@ -5,22 +5,26 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Reforma Tributária Descomplicada — Grupo Barbosa | Gestão Tributária</title>
 <meta name="description" content="O guia definitivo para empresários entenderem como a Reforma Tributária (EC 132/2023) impacta seu negócio. CBS, IBS e Imposto Seletivo com profundidade técnica e clareza estratégica.">
-<link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Cinzel:wght@400;600;700&display=swap" rel="stylesheet">
 <style>
 :root {
-  --ink:    #03090F;
-  --bg:     #06111E;
-  --bg2:    #091829;
-  --bg3:    #0B1F34;
-  --card:   rgba(255,255,255,.042);
+  --ink:    #020810;
+  --bg:     #060F1B;
+  --bg2:    #081626;
+  --bg3:    #0A1C30;
+  --card:   rgba(255,255,255,.04);
   --cardh:  rgba(255,255,255,.07);
   --border: rgba(255,255,255,.09);
-  --borderh:rgba(255,255,255,.2);
-  --gold:   #C8973A;
-  --goldd:  #A07828;
-  --goldl:  #E4B85A;
-  --goldg:  rgba(200,151,58,.14);
-  --goldf:  rgba(200,151,58,.07);
+  --borderh:rgba(255,255,255,.22);
+
+  /* Prata — identidade Grupo Barbosa */
+  --sv:   #B8C4CE;   /* prata principal */
+  --svd:  #8A96A2;   /* prata escuro */
+  --svl:  #D6DDE4;   /* prata claro */
+  --svg:  rgba(184,196,206,.14); /* glow */
+  --svf:  rgba(184,196,206,.07); /* faint */
+  --svb:  rgba(184,196,206,.22); /* border */
+
   --w:      #FFFFFF;
   --muted:  rgba(255,255,255,.54);
   --subtle: rgba(255,255,255,.28);
@@ -39,29 +43,41 @@ section { padding: 96px 0; }
   position: fixed; top: 0; left: 0; right: 0; z-index: 100;
   height: 72px; padding: 0 40px;
   display: flex; align-items: center; justify-content: space-between;
-  background: rgba(6,17,30,.88);
-  backdrop-filter: blur(18px); -webkit-backdrop-filter: blur(18px);
-  border-bottom: 1px solid var(--border);
+  background: rgba(6,15,27,.9);
+  backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(184,196,206,.1);
 }
-.logo { display: flex; align-items: center; gap: 11px; }
-.logo-name { font-size: 15px; font-weight: 800; letter-spacing: .07em; text-transform: uppercase; line-height: 1.1; }
-.logo-sub  { font-size: 9px;  font-weight: 500; letter-spacing: .15em; text-transform: uppercase; color: var(--muted); margin-top: 2px; }
+.logo { display: flex; align-items: center; gap: 14px; }
+.logo-text {}
+.logo-name {
+  font-family: 'Cinzel', serif;
+  font-size: 14px; font-weight: 600;
+  letter-spacing: .12em; color: var(--svl);
+  line-height: 1.15;
+}
+.logo-dot { color: var(--sv); }
+.logo-sub {
+  font-size: 9px; font-weight: 500;
+  letter-spacing: .2em; text-transform: uppercase;
+  color: var(--svd); margin-top: 3px;
+}
 .hdr-cta {
-  display: inline-flex; align-items: center;
+  display: inline-flex; align-items: center; gap: 7px;
   font-size: 13px; font-weight: 600; padding: 10px 22px; border-radius: 7px;
-  border: 1.5px solid rgba(255,255,255,.28); color: var(--w);
-  transition: border-color .2s, background .2s;
+  border: 1px solid var(--svb); color: var(--svl);
+  transition: border-color .2s, background .2s, color .2s;
+  letter-spacing: .03em;
 }
-.hdr-cta:hover { border-color: rgba(255,255,255,.55); background: rgba(255,255,255,.06); }
+.hdr-cta:hover { border-color: var(--sv); background: var(--svf); color: var(--w); }
 
 /* ── BUTTONS ── */
 .btn { display: inline-flex; align-items: center; gap: 8px; font-family: 'Inter', sans-serif; font-size: 15px; font-weight: 600; padding: 16px 34px; border-radius: 8px; border: none; cursor: pointer; transition: all .2s; letter-spacing: .01em; }
 .btn-white { background: var(--w); color: var(--ink); }
-.btn-white:hover { background: #e6e6e6; transform: translateY(-1px); box-shadow: 0 8px 32px rgba(0,0,0,.35); }
-.btn-outline { background: transparent; color: var(--w); border: 1.5px solid rgba(255,255,255,.28); }
-.btn-outline:hover { border-color: rgba(255,255,255,.55); background: rgba(255,255,255,.05); }
-.btn-gold { background: var(--gold); color: var(--ink); }
-.btn-gold:hover { background: var(--goldl); transform: translateY(-1px); box-shadow: 0 8px 32px rgba(200,151,58,.32); }
+.btn-white:hover { background: #e6e8ea; transform: translateY(-1px); box-shadow: 0 8px 32px rgba(0,0,0,.35); }
+.btn-outline { background: transparent; color: var(--svl); border: 1px solid var(--svb); }
+.btn-outline:hover { border-color: var(--sv); background: var(--svf); color: var(--w); }
+.btn-sv { background: var(--sv); color: var(--ink); font-weight: 700; }
+.btn-sv:hover { background: var(--svl); transform: translateY(-1px); box-shadow: 0 8px 32px rgba(184,196,206,.25); }
 .btn-lg { font-size: 16px; padding: 18px 42px; }
 .btn-block { display: flex; width: 100%; justify-content: center; }
 
@@ -69,67 +85,59 @@ section { padding: 96px 0; }
 .hero {
   min-height: 100vh; display: flex; align-items: center;
   padding: 120px 0 80px; position: relative; overflow: hidden;
-  background: #05101D;
+  background: #050D18;
 }
-/* Atmospheric glow layers */
 .hero::before {
-  content: '';
-  position: absolute; inset: 0; pointer-events: none;
+  content: ''; position: absolute; inset: 0; pointer-events: none;
   background:
-    radial-gradient(ellipse 70% 60% at 85% 110%, rgba(175,110,22,.13) 0%, transparent 55%),
-    radial-gradient(ellipse 55% 70% at 8%  15%,  rgba(10,42,100,.5)  0%, transparent 55%),
-    radial-gradient(ellipse 90% 40% at 50% 105%, rgba(8,28,65,.45)   0%, transparent 50%);
+    radial-gradient(ellipse 65% 55% at 88% 105%, rgba(120,150,185,.1)  0%, transparent 52%),
+    radial-gradient(ellipse 55% 65% at 6%  12%,  rgba(12,40,80,.55)    0%, transparent 55%),
+    radial-gradient(ellipse 90% 40% at 50% 108%, rgba(8,25,55,.5)      0%, transparent 48%);
 }
-/* Subtle vertical grid (building facade feel) */
 .hero::after {
-  content: '';
-  position: absolute; inset: 0; pointer-events: none;
+  content: ''; position: absolute; inset: 0; pointer-events: none;
   background-image: repeating-linear-gradient(
     90deg,
-    rgba(255,255,255,.013) 0, rgba(255,255,255,.013) 1px,
+    rgba(255,255,255,.012) 0, rgba(255,255,255,.012) 1px,
     transparent 1px, transparent 80px
   );
 }
-/* City silhouette — bottom of hero */
 .city { position: absolute; bottom: 0; left: 0; right: 0; pointer-events: none; }
 .hero .wrap { position: relative; z-index: 2; }
 .hero-inner { max-width: 700px; }
-
 .hero-badge {
   display: inline-flex; align-items: center; gap: 9px;
-  background: var(--goldf); border: 1px solid rgba(200,151,58,.24);
+  background: var(--svf); border: 1px solid rgba(184,196,206,.2);
   border-radius: 100px; padding: 6px 16px; margin-bottom: 34px;
 }
-.hero-badge .dot { width: 6px; height: 6px; background: var(--gold); border-radius: 50%; animation: blink 2s ease infinite; }
-@keyframes blink { 0%,100% { opacity: 1; } 50% { opacity: .3; } }
-.hero-badge span { font-size: 11px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--goldl); }
-
+.hero-badge .dot { width: 6px; height: 6px; background: var(--sv); border-radius: 50%; animation: blink 2.2s ease infinite; flex-shrink: 0; }
+@keyframes blink { 0%,100% { opacity: 1; } 50% { opacity: .25; } }
+.hero-badge span { font-size: 11px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--svl); }
 .hero h1 {
-  font-size: clamp(36px,4.6vw,60px);
-  font-weight: 900; line-height: 1.06; letter-spacing: -.025em;
-  margin-bottom: 24px;
+  font-size: clamp(36px,4.6vw,60px); font-weight: 900;
+  line-height: 1.06; letter-spacing: -.025em; margin-bottom: 24px;
 }
-.hero h1 .gold { color: var(--goldl); }
+.hero h1 .acc { color: var(--sv); }
 .hero-sub {
   font-size: clamp(15px,1.4vw,17px); line-height: 1.78;
   color: var(--muted); max-width: 600px; margin-bottom: 42px;
 }
 .hero-btns { display: flex; gap: 14px; flex-wrap: wrap; margin-bottom: 22px; }
 .hero-note { font-size: 12px; color: var(--subtle); }
-.hero-note span { margin: 0 9px; opacity: .4; }
+.hero-note span { margin: 0 9px; opacity: .35; }
 
 /* ── STATS ── */
-.stats { background: var(--bg2); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); padding: 0; }
+.stats { background: var(--bg2); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
 .stats-row { display: flex; align-items: stretch; }
-.stat-item { flex: 1; text-align: center; padding: 36px 24px; border-right: 1px solid var(--border); }
+.stat-item { flex: 1; text-align: center; padding: 36px 20px; border-right: 1px solid var(--border); }
 .stat-item:last-child { border-right: none; }
-.stat-n { font-size: 34px; font-weight: 900; letter-spacing: -.03em; line-height: 1; color: var(--w); }
-.stat-n em { color: var(--gold); font-style: normal; }
+.stat-n { font-size: 34px; font-weight: 900; letter-spacing: -.03em; line-height: 1; }
+.stat-n em { color: var(--sv); font-style: normal; }
 .stat-l { font-size: 12px; color: var(--muted); margin-top: 7px; letter-spacing: .04em; }
 
 /* ── SECTION HEADER ── */
 .sh { margin-bottom: 56px; }
-.label { font-size: 11px; font-weight: 700; letter-spacing: .2em; text-transform: uppercase; color: var(--gold); display: block; margin-bottom: 14px; }
+.label { font-size: 11px; font-weight: 700; letter-spacing: .22em; text-transform: uppercase; color: var(--sv); display: block; margin-bottom: 14px; }
 .sh h2 { font-size: clamp(26px,3.2vw,40px); font-weight: 800; line-height: 1.1; letter-spacing: -.02em; margin-bottom: 16px; }
 .sh p { font-size: clamp(15px,1.4vw,17px); line-height: 1.75; color: var(--muted); max-width: 620px; }
 
@@ -140,8 +148,8 @@ section { padding: 96px 0; }
   background: var(--card); border: 1px solid var(--border); border-radius: var(--r);
   padding: 32px; transition: border-color .22s, background .22s;
 }
-.pain-card:hover { border-color: rgba(200,151,58,.3); background: var(--cardh); }
-.p-icon { width: 44px; height: 44px; background: var(--goldf); border: 1px solid rgba(200,151,58,.2); border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 20px; margin-bottom: 20px; }
+.pain-card:hover { border-color: var(--svb); background: var(--cardh); }
+.p-icon { width: 44px; height: 44px; background: var(--svf); border: 1px solid rgba(184,196,206,.18); border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 20px; margin-bottom: 20px; }
 .pain-card h3 { font-size: 16px; font-weight: 700; margin-bottom: 10px; line-height: 1.3; }
 .pain-card p  { font-size: 14px; line-height: 1.68; color: var(--muted); }
 
@@ -152,33 +160,33 @@ section { padding: 96px 0; }
   background: var(--card); border: 1px solid var(--border); border-radius: var(--r);
   padding: 36px; position: relative; overflow: hidden; transition: border-color .22s;
 }
-.mod-card:hover { border-color: rgba(200,151,58,.28); }
-.mod-card::after { /* top shimmer on hover */
+.mod-card:hover { border-color: var(--svb); }
+.mod-card::after {
   content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(200,151,58,.55), transparent);
+  background: linear-gradient(90deg, transparent, var(--sv), transparent);
   opacity: 0; transition: opacity .22s;
 }
-.mod-card:hover::after { opacity: 1; }
+.mod-card:hover::after { opacity: .5; }
 .bg-num {
   position: absolute; top: 14px; right: 22px;
   font-size: 72px; font-weight: 900; letter-spacing: -.04em;
-  color: rgba(255,255,255,.035); line-height: 1; user-select: none;
+  color: rgba(255,255,255,.03); line-height: 1; user-select: none;
 }
 .mod-tag {
-  display: inline-block; background: var(--goldf);
-  border: 1px solid rgba(200,151,58,.22); border-radius: 4px;
+  display: inline-block; background: var(--svf);
+  border: 1px solid rgba(184,196,206,.2); border-radius: 4px;
   padding: 4px 10px; font-size: 10px; font-weight: 700; letter-spacing: .14em;
-  text-transform: uppercase; color: var(--gold); margin-bottom: 16px;
+  text-transform: uppercase; color: var(--sv); margin-bottom: 16px;
 }
-.mod-card h3 { font-size: 17px; font-weight: 700; margin-bottom: 18px; line-height: 1.25; position: relative; }
-.mod-card ul { list-style: none; padding: 0; position: relative; }
+.mod-card h3 { font-size: 17px; font-weight: 700; margin-bottom: 18px; line-height: 1.25; }
+.mod-card ul { list-style: none; padding: 0; }
 .mod-card ul li {
   font-size: 14px; color: var(--muted); padding: 8px 0;
   border-bottom: 1px solid rgba(255,255,255,.05);
   display: flex; align-items: flex-start; gap: 10px; line-height: 1.55;
 }
 .mod-card ul li:last-child { border-bottom: none; }
-.mod-card ul li::before { content: ''; width: 5px; height: 5px; background: var(--gold); border-radius: 50%; flex-shrink: 0; margin-top: 6px; }
+.mod-card ul li::before { content: ''; width: 5px; height: 5px; background: var(--sv); border-radius: 50%; flex-shrink: 0; margin-top: 6px; }
 
 /* ── AVALIAÇÕES ── */
 .avaliacoes { background: var(--bg); }
@@ -187,17 +195,17 @@ section { padding: 96px 0; }
   background: var(--card); border: 1px solid var(--border); border-radius: var(--r);
   padding: 32px; display: flex; flex-direction: column;
 }
-.av-stars { color: var(--gold); font-size: 13px; letter-spacing: 3px; margin-bottom: 20px; }
-.av-quote { font-size: 14px; line-height: 1.78; color: rgba(255,255,255,.78); font-style: italic; flex: 1; margin-bottom: 24px; }
-.av-sep { width: 100%; height: 1px; background: var(--border); margin-bottom: 20px; }
+.av-stars { color: var(--sv); font-size: 14px; letter-spacing: 2px; margin-bottom: 20px; }
+.av-quote { font-size: 14px; line-height: 1.8; color: rgba(255,255,255,.78); font-style: italic; flex: 1; margin-bottom: 24px; }
+.av-sep { height: 1px; background: var(--border); margin-bottom: 20px; }
 .av-name    { font-size: 14px; font-weight: 700; }
 .av-role    { font-size: 13px; color: var(--muted); margin-top: 3px; }
-.av-company { font-size: 12px; color: var(--gold); margin-top: 3px; font-weight: 600; letter-spacing: .03em; }
+.av-company { font-size: 12px; color: var(--sv); margin-top: 3px; font-weight: 600; letter-spacing: .03em; }
 
 /* ── SOBRE ── */
 .sobre { background: var(--bg2); }
-.sobre-inner { display: grid; grid-template-columns: 1fr 360px; gap: 80px; align-items: center; }
-.goldbar { width: 36px; height: 2px; background: var(--gold); margin-bottom: 22px; }
+.sobre-inner { display: grid; grid-template-columns: 1fr 340px; gap: 80px; align-items: center; }
+.silverbar { width: 36px; height: 1.5px; background: linear-gradient(90deg, var(--svl), var(--svd)); margin-bottom: 22px; }
 .sobre-text h2 { font-size: clamp(24px,3vw,38px); font-weight: 800; letter-spacing: -.02em; line-height: 1.1; margin-bottom: 22px; }
 .sobre-text p  { font-size: 15px; line-height: 1.82; color: var(--muted); margin-bottom: 16px; }
 .val-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 8px; }
@@ -205,26 +213,23 @@ section { padding: 96px 0; }
 .val-card h4 { font-size: 13px; font-weight: 700; margin-bottom: 6px; }
 .val-card p  { font-size: 13px; color: var(--muted); line-height: 1.55; }
 .seal {
-  width: 100%; aspect-ratio: 1; border: 1px solid rgba(200,151,58,.22);
+  width: 100%; aspect-ratio: 1; border: 1px solid rgba(184,196,206,.18);
   border-radius: 50%; display: flex; align-items: center; justify-content: center;
-  position: relative; max-width: 280px; margin: 0 auto;
+  position: relative; max-width: 260px; margin: 0 auto;
 }
-.seal::before {
-  content: ''; position: absolute; inset: 10px;
-  border: 1px solid rgba(200,151,58,.1); border-radius: 50%;
-}
-.seal-text { text-align: center; position: relative; z-index: 1; }
-.seal-text p { font-size: 11px; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); margin-top: 6px; }
+.seal::before { content: ''; position: absolute; inset: 10px; border: 1px solid rgba(184,196,206,.08); border-radius: 50%; }
+.seal-text { text-align: center; }
+.seal-text p { font-family: 'Cinzel', serif; font-size: 11px; font-weight: 600; letter-spacing: .14em; color: var(--svd); margin-top: 8px; }
 
 /* ── PREÇO ── */
 .preco { background: var(--bg); }
 .preco-box {
   max-width: 540px; margin: 0 auto;
-  background: var(--card); border: 1px solid rgba(200,151,58,.22);
+  background: var(--card); border: 1px solid rgba(184,196,206,.2);
   border-radius: 18px; padding: 52px; text-align: center; position: relative; overflow: hidden;
 }
-.preco-box::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px; background: linear-gradient(90deg, transparent, var(--gold), transparent); }
-.preco-tag { display: inline-block; background: var(--goldg); border: 1px solid rgba(200,151,58,.28); border-radius: 4px; padding: 4px 14px; font-size: 10px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--gold); margin-bottom: 24px; }
+.preco-box::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px; background: linear-gradient(90deg, transparent, var(--sv), transparent); opacity: .6; }
+.preco-tag { display: inline-block; background: var(--svg); border: 1px solid var(--svb); border-radius: 4px; padding: 4px 14px; font-size: 10px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--sv); margin-bottom: 24px; }
 .preco-old { font-size: 14px; color: var(--subtle); text-decoration: line-through; margin-bottom: 8px; }
 .preco-num { font-size: 72px; font-weight: 900; line-height: 1; letter-spacing: -.04em; margin-bottom: 6px; }
 .preco-num sup { font-size: 26px; vertical-align: top; margin-top: 14px; font-weight: 700; }
@@ -233,10 +238,10 @@ section { padding: 96px 0; }
 .inc { list-style: none; padding: 0; margin: 0 0 36px; text-align: left; }
 .inc li { display: flex; align-items: flex-start; gap: 12px; padding: 11px 0; border-bottom: 1px solid rgba(255,255,255,.05); font-size: 15px; }
 .inc li:last-child { border-bottom: none; }
-.ck { width: 19px; height: 19px; background: var(--goldf); border: 1px solid rgba(200,151,58,.28); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 1px; }
+.ck { width: 19px; height: 19px; background: var(--svf); border: 1px solid var(--svb); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 1px; }
 .seg { font-size: 12px; color: var(--subtle); display: flex; align-items: center; justify-content: center; gap: 6px; margin-top: 14px; }
 
-/* ── GARANTIA STRIP ── */
+/* ── GARANTIA ── */
 .gar-strip { background: var(--bg2); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); padding: 52px 0; }
 .gar-inner { display: flex; align-items: center; gap: 36px; max-width: 720px; margin: 0 auto; }
 .gar-ic { font-size: 52px; flex-shrink: 0; }
@@ -252,18 +257,18 @@ section { padding: 96px 0; }
 
 /* ── CTA FINAL ── */
 .cta-final { background: var(--bg2); padding: 100px 0; position: relative; overflow: hidden; }
-.cta-final::before { content: ''; position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); width: 700px; height: 300px; background: radial-gradient(ellipse, rgba(200,151,58,.09) 0%, transparent 65%); pointer-events: none; }
+.cta-final::before { content: ''; position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); width: 700px; height: 300px; background: radial-gradient(ellipse, rgba(184,196,206,.07) 0%, transparent 65%); pointer-events: none; }
 .cta-final .wrap { position: relative; z-index: 1; text-align: center; }
 .cta-final h2 { font-size: clamp(26px,3.5vw,44px); font-weight: 900; letter-spacing: -.025em; line-height: 1.1; margin-bottom: 18px; }
 .cta-final p  { font-size: 17px; color: var(--muted); line-height: 1.75; max-width: 560px; margin: 0 auto 40px; }
 
 /* ── FOOTER ── */
-footer { background: var(--ink); border-top: 1px solid var(--border); padding: 40px 0; }
+footer { background: var(--ink); border-top: 1px solid rgba(184,196,206,.08); padding: 40px 0; }
 .footer-row { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 20px; }
 .footer-links { display: flex; gap: 24px; }
 .footer-links a { font-size: 13px; color: var(--subtle); transition: color .2s; }
-.footer-links a:hover { color: var(--muted); }
-.disc { margin-top: 22px; padding-top: 22px; border-top: 1px solid rgba(255,255,255,.05); font-size: 12px; color: rgba(255,255,255,.2); line-height: 1.7; text-align: center; }
+.footer-links a:hover { color: var(--sv); }
+.disc { margin-top: 22px; padding-top: 22px; border-top: 1px solid rgba(255,255,255,.05); font-size: 12px; color: rgba(255,255,255,.18); line-height: 1.7; text-align: center; }
 
 /* ── RESPONSIVE ── */
 @media (max-width: 960px) {
@@ -276,9 +281,9 @@ footer { background: var(--ink); border-top: 1px solid var(--border); padding: 4
   .stats-row { flex-direction: column; }
   .stat-item { border-right: none; border-bottom: 1px solid var(--border); }
   .stat-item:last-child { border-bottom: none; }
+  .hdr { padding: 0 24px; }
 }
 @media (max-width: 600px) {
-  .hdr { padding: 0 20px; }
   .hero { padding: 100px 0 60px; }
   .hero h1 { font-size: 36px; }
   .hero-btns { flex-direction: column; align-items: flex-start; }
@@ -294,12 +299,40 @@ footer { background: var(--ink); border-top: 1px solid var(--border); padding: 4
 <!-- ══ HEADER ══ -->
 <header class="hdr">
   <div class="logo">
-    <svg width="30" height="36" viewBox="0 0 30 36" fill="none">
-      <path d="M15 1.5L1.5 7.2v10.8C1.5 27.3 7.8 34.8 15 36.5c7.2-1.7 13.5-9.2 13.5-18.5V7.2L15 1.5z" stroke="white" stroke-width="1.4" fill="none"/>
-      <path d="M9.5 18.5l4 4 7.5-8" stroke="#C8973A" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+    <!-- Escudo heráldico — Grupo Barbosa -->
+    <svg width="38" height="48" viewBox="0 0 52 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <!-- Moldura quadrada externa -->
+      <rect x="1"   y="1"   width="50" height="50" stroke="#B8C4CE" stroke-width="1.1" fill="none"/>
+      <!-- Moldura interna (requadro) -->
+      <rect x="3.5" y="3.5" width="45" height="45" stroke="#B8C4CE" stroke-width=".45" fill="none" opacity=".4"/>
+      <!-- Escudo heráldico (gothico — ponta na base) -->
+      <path d="M9 8 H43 V31 Q43 43 26 49.5 Q9 43 9 31 Z"
+            stroke="#B8C4CE" stroke-width="1.05" fill="rgba(184,196,206,.04)"/>
+      <!-- Barra divisória horizontal do escudo -->
+      <line x1="9" y1="21.5" x2="43" y2="21.5" stroke="#B8C4CE" stroke-width=".75" opacity=".75"/>
+      <!-- Tridente (parte superior do escudo) -->
+      <!-- Haste central -->
+      <line x1="26" y1="10" x2="26" y2="21" stroke="#B8C4CE" stroke-width="1.25" stroke-linecap="round"/>
+      <!-- Prong esquerdo -->
+      <line x1="21" y1="10" x2="21" y2="15.5" stroke="#B8C4CE" stroke-width="1" stroke-linecap="round"/>
+      <!-- Prong direito -->
+      <line x1="31" y1="10" x2="31" y2="15.5" stroke="#B8C4CE" stroke-width="1" stroke-linecap="round"/>
+      <!-- Conector horizontal do topo do tridente -->
+      <path d="M21 10.5 Q26 8 31 10.5" stroke="#B8C4CE" stroke-width=".7" fill="none"/>
+      <!-- Ornamento cálice (parte inferior do escudo) -->
+      <path d="M14 25.5 Q26 36.5 38 25.5" stroke="#B8C4CE" stroke-width=".95" fill="none"/>
+      <line x1="26" y1="36.5" x2="26" y2="43" stroke="#B8C4CE" stroke-width=".9" stroke-linecap="round" opacity=".7"/>
+      <!-- Ramo esquerdo (louros) -->
+      <path d="M7 53.5 Q2.5 46 5.5 37" stroke="#B8C4CE" stroke-width=".9" fill="none" opacity=".55"/>
+      <path d="M7 53.5 Q2  50 4   43"  stroke="#B8C4CE" stroke-width=".6" fill="none" opacity=".35"/>
+      <!-- Ramo direito (louros) -->
+      <path d="M45 53.5 Q49.5 46 46.5 37" stroke="#B8C4CE" stroke-width=".9" fill="none" opacity=".55"/>
+      <path d="M45 53.5 Q50  50 48   43"  stroke="#B8C4CE" stroke-width=".6" fill="none" opacity=".35"/>
+      <!-- Ponto inferior / diamante -->
+      <path d="M26 57 L23.5 53.5 L26 56 L28.5 53.5 Z" fill="#B8C4CE" opacity=".6"/>
     </svg>
-    <div>
-      <div class="logo-name">Grupo Barbosa</div>
+    <div class="logo-text">
+      <div class="logo-name">Grupo Barbosa<span class="logo-dot">.</span></div>
       <div class="logo-sub">Gestão Tributária</div>
     </div>
   </div>
@@ -308,20 +341,18 @@ footer { background: var(--ink); border-top: 1px solid var(--border); padding: 4
 
 <!-- ══ HERO ══ -->
 <section class="hero">
-  <!-- City skyline SVG at bottom -->
   <div class="city">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 200" preserveAspectRatio="xMidYMax slice" style="display:block;width:100%;opacity:.65;">
-      <path fill="#04101E" d="M0,200V140l15-0V110l10,0V90l10,0V70l10,0V55l10,0V40l15,0V20l10,0V5l10,0V0l10,0V5l10,0V20l10,0V40l15,0V55l10,0V70l10,0V50l10,0V30l10,0V10l10,0V0l10,0V10l10,0V30l10,0V55l15,0V75l10,0V90l10,0V70l10,0V45l10,0V25l10,0V10l10,0V25l10,0V45l10,0V65l15,0V80l10,0V100l10,0V80l10,0V60l10,0V40l10,0V55l10,0V75l10,0V95l15,0V80l10,0V60l10,0V40l10,0V20l10,0V5l10,0V0l10,0V5l10,0V20l10,0V40l10,0V60l15,0V80l10,0V100l10,0V80l10,0V65l10,0V45l10,0V60l10,0V80l10,0V100l15,0V120l10,0V100l10,0V80l10,0V100l10,0V120l10,0V100l10,0V120l10,0V140l15,0V120l10,0V140l10,0V120l10,0V140l15,0V160l10,0V140l10,0V160l1440,0V200Z"/>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 200" preserveAspectRatio="xMidYMax slice" style="display:block;width:100%;opacity:.6;">
+      <path fill="#03080F" d="M0,200V140l15,0V110l10,0V90l10,0V70l10,0V55l10,0V40l15,0V20l10,0V5l10,0V0l10,0V5l10,0V20l10,0V40l15,0V55l10,0V70l10,0V50l10,0V30l10,0V10l10,0V0l10,0V10l10,0V30l10,0V55l15,0V75l10,0V90l10,0V70l10,0V45l10,0V25l10,0V10l10,0V25l10,0V45l10,0V65l15,0V80l10,0V100l10,0V80l10,0V60l10,0V40l10,0V55l10,0V75l10,0V95l15,0V80l10,0V60l10,0V40l10,0V20l10,0V5l10,0V0l10,0V5l10,0V20l10,0V40l10,0V60l15,0V80l10,0V100l10,0V80l10,0V65l10,0V45l10,0V60l10,0V80l10,0V100l15,0V120l10,0V100l10,0V80l10,0V100l10,0V120l10,0V100l10,0V120l10,0V140l15,0V120l10,0V140l10,0V120l10,0V140l15,0V160l10,0V140l10,0V160l1440,0V200Z"/>
     </svg>
   </div>
-
   <div class="wrap">
     <div class="hero-inner">
       <div class="hero-badge">
         <div class="dot"></div>
         <span>EC 132/2023 — Em vigor</span>
       </div>
-      <h1>A Maior Mudança<br>Tributária dos Últimos<br><span class="gold">30 Anos.</span></h1>
+      <h1>A Maior Mudança<br>Tributária dos Últimos<br><span class="acc">30 Anos.</span></h1>
       <p class="hero-sub">CBS, IBS e Imposto Seletivo vão reconfigurar a carga tributária de toda empresa brasileira a partir de 2026. O Grupo Barbosa organizou o que você precisa entender — com profundidade técnica e clareza estratégica.</p>
       <div class="hero-btns">
         <a href="{{CHECKOUT_URL}}" class="btn btn-white btn-lg">Garantir o Guia — R$47,00</a>
@@ -482,36 +513,35 @@ footer { background: var(--ink); border-top: 1px solid var(--border); padding: 4
   <div class="wrap">
     <div class="sobre-inner">
       <div class="sobre-text">
-        <div class="goldbar"></div>
+        <div class="silverbar"></div>
         <h2>O Grupo Barbosa e a gestão tributária de alto nível</h2>
         <p>O Grupo Barbosa é um escritório especializado em transação tributária e reorganização de passivos fiscais, criado para atender empresas que exigem clareza técnica, estratégia e previsibilidade na relação com o fisco.</p>
         <p>Acompanhamos a tramitação da Reforma Tributária desde os primeiros projetos no Congresso. Este guia sintetiza o que aprendemos ao assessorar empresas de diferentes setores no mapeamento dos impactos e das oportunidades da EC 132/2023.</p>
         <div class="val-grid">
-          <div class="val-card">
-            <h4>Atuação consultiva</h4>
-            <p>Cada cenário é analisado antes de qualquer recomendação.</p>
-          </div>
-          <div class="val-card">
-            <h4>Viabilidade real</h4>
-            <p>Estratégias que consideram caixa, continuidade e sustentabilidade.</p>
-          </div>
-          <div class="val-card">
-            <h4>Análise técnica</h4>
-            <p>Leitura completa do passivo fiscal antes de propor qualquer caminho.</p>
-          </div>
-          <div class="val-card">
-            <h4>Segurança decisória</h4>
-            <p>Clareza e organização para o empresário operar com previsibilidade.</p>
-          </div>
+          <div class="val-card"><h4>Atuação consultiva</h4><p>Cada cenário é analisado antes de qualquer recomendação.</p></div>
+          <div class="val-card"><h4>Viabilidade real</h4><p>Estratégias que consideram caixa, continuidade e sustentabilidade.</p></div>
+          <div class="val-card"><h4>Análise técnica</h4><p>Leitura completa do passivo fiscal antes de propor qualquer caminho.</p></div>
+          <div class="val-card"><h4>Segurança decisória</h4><p>Clareza e organização para o empresário operar com previsibilidade.</p></div>
         </div>
       </div>
       <div class="seal">
         <div class="seal-text">
-          <svg width="72" height="84" viewBox="0 0 30 36" fill="none">
-            <path d="M15 1.5L1.5 7.2v10.8C1.5 27.3 7.8 34.8 15 36.5c7.2-1.7 13.5-9.2 13.5-18.5V7.2L15 1.5z" stroke="#C8973A" stroke-width="1.2" fill="none"/>
-            <path d="M9.5 18.5l4 4 7.5-8" stroke="#C8973A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+          <svg width="80" height="94" viewBox="0 0 52 64" fill="none">
+            <rect x="1" y="1" width="50" height="50" stroke="#B8C4CE" stroke-width="1" fill="none" opacity=".5"/>
+            <rect x="3.5" y="3.5" width="45" height="45" stroke="#B8C4CE" stroke-width=".4" fill="none" opacity=".3"/>
+            <path d="M9 8 H43 V31 Q43 43 26 49.5 Q9 43 9 31 Z" stroke="#B8C4CE" stroke-width="1" fill="rgba(184,196,206,.04)"/>
+            <line x1="9" y1="21.5" x2="43" y2="21.5" stroke="#B8C4CE" stroke-width=".65" opacity=".65"/>
+            <line x1="26" y1="10" x2="26" y2="21" stroke="#B8C4CE" stroke-width="1.1" stroke-linecap="round"/>
+            <line x1="21" y1="10" x2="21" y2="15.5" stroke="#B8C4CE" stroke-width=".9" stroke-linecap="round"/>
+            <line x1="31" y1="10" x2="31" y2="15.5" stroke="#B8C4CE" stroke-width=".9" stroke-linecap="round"/>
+            <path d="M21 10.5 Q26 8 31 10.5" stroke="#B8C4CE" stroke-width=".6" fill="none"/>
+            <path d="M14 25.5 Q26 36.5 38 25.5" stroke="#B8C4CE" stroke-width=".9" fill="none"/>
+            <line x1="26" y1="36.5" x2="26" y2="43" stroke="#B8C4CE" stroke-width=".8" stroke-linecap="round" opacity=".65"/>
+            <path d="M7 53.5 Q2.5 46 5.5 37" stroke="#B8C4CE" stroke-width=".8" fill="none" opacity=".45"/>
+            <path d="M45 53.5 Q49.5 46 46.5 37" stroke="#B8C4CE" stroke-width=".8" fill="none" opacity=".45"/>
+            <path d="M26 57 L23.5 53.5 L26 56 L28.5 53.5 Z" fill="#B8C4CE" opacity=".5"/>
           </svg>
-          <p>Grupo Barbosa</p>
+          <p>Grupo Barbosa.</p>
         </div>
       </div>
     </div>
@@ -522,7 +552,7 @@ footer { background: var(--ink); border-top: 1px solid var(--border); padding: 4
 <section class="preco" id="preco">
   <div class="wrap">
     <div class="sh" style="text-align:center;">
-      <span class="label" style="text-align:center;">Investimento</span>
+      <span class="label">Investimento</span>
       <h2>Acesso completo ao guia</h2>
       <p style="margin:0 auto;">Tudo que você precisa para compreender, planejar e proteger seu negócio diante da maior reforma tributária da história brasileira.</p>
     </div>
@@ -532,16 +562,16 @@ footer { background: var(--ink); border-top: 1px solid var(--border); padding: 4
       <div class="preco-num"><sup>R$</sup>47<small>,00</small></div>
       <div class="preco-info">Pagamento único · Acesso imediato · PDF para ler offline</div>
       <ul class="inc">
-        <li><div class="ck"><svg viewBox="0 0 10 8" fill="none" width="10"><path d="M1 4l3 3 5-6" stroke="#C8973A" stroke-width="1.5" stroke-linecap="round"/></svg></div> Módulo 1 — A Reforma do Zero: EC 132/2023 e Cronograma</li>
-        <li><div class="ck"><svg viewBox="0 0 10 8" fill="none" width="10"><path d="M1 4l3 3 5-6" stroke="#C8973A" stroke-width="1.5" stroke-linecap="round"/></svg></div> Módulo 2 — CBS, IBS e Imposto Seletivo Explicados</li>
-        <li><div class="ck"><svg viewBox="0 0 10 8" fill="none" width="10"><path d="M1 4l3 3 5-6" stroke="#C8973A" stroke-width="1.5" stroke-linecap="round"/></svg></div> Módulo 3 — Impacto Real por Setor e Regime Tributário</li>
-        <li><div class="ck"><svg viewBox="0 0 10 8" fill="none" width="10"><path d="M1 4l3 3 5-6" stroke="#C8973A" stroke-width="1.5" stroke-linecap="round"/></svg></div> Módulo 4 — Plano de Adequação 2025–2033</li>
-        <li><div class="ck"><svg viewBox="0 0 10 8" fill="none" width="10"><path d="M1 4l3 3 5-6" stroke="#C8973A" stroke-width="1.5" stroke-linecap="round"/></svg></div> Acesso à área de membros Kiwify</li>
-        <li><div class="ck"><svg viewBox="0 0 10 8" fill="none" width="10"><path d="M1 4l3 3 5-6" stroke="#C8973A" stroke-width="1.5" stroke-linecap="round"/></svg></div> Atualizações gratuitas conforme novas regulamentações</li>
+        <li><div class="ck"><svg viewBox="0 0 10 8" fill="none" width="10"><path d="M1 4l3 3 5-6" stroke="#B8C4CE" stroke-width="1.5" stroke-linecap="round"/></svg></div> Módulo 1 — A Reforma do Zero: EC 132/2023 e Cronograma</li>
+        <li><div class="ck"><svg viewBox="0 0 10 8" fill="none" width="10"><path d="M1 4l3 3 5-6" stroke="#B8C4CE" stroke-width="1.5" stroke-linecap="round"/></svg></div> Módulo 2 — CBS, IBS e Imposto Seletivo Explicados</li>
+        <li><div class="ck"><svg viewBox="0 0 10 8" fill="none" width="10"><path d="M1 4l3 3 5-6" stroke="#B8C4CE" stroke-width="1.5" stroke-linecap="round"/></svg></div> Módulo 3 — Impacto Real por Setor e Regime Tributário</li>
+        <li><div class="ck"><svg viewBox="0 0 10 8" fill="none" width="10"><path d="M1 4l3 3 5-6" stroke="#B8C4CE" stroke-width="1.5" stroke-linecap="round"/></svg></div> Módulo 4 — Plano de Adequação 2025–2033</li>
+        <li><div class="ck"><svg viewBox="0 0 10 8" fill="none" width="10"><path d="M1 4l3 3 5-6" stroke="#B8C4CE" stroke-width="1.5" stroke-linecap="round"/></svg></div> Acesso à área de membros Kiwify</li>
+        <li><div class="ck"><svg viewBox="0 0 10 8" fill="none" width="10"><path d="M1 4l3 3 5-6" stroke="#B8C4CE" stroke-width="1.5" stroke-linecap="round"/></svg></div> Atualizações gratuitas conforme novas regulamentações</li>
       </ul>
-      <a href="{{CHECKOUT_URL}}" class="btn btn-gold btn-block" style="font-size:16px;padding:18px;">Garantir Acesso Agora</a>
+      <a href="{{CHECKOUT_URL}}" class="btn btn-sv btn-block" style="font-size:16px;padding:18px;">Garantir Acesso Agora</a>
       <p class="seg">
-        <svg width="12" height="14" viewBox="0 0 12 14" fill="none"><rect x=".5" y="5.5" width="11" height="8" rx="1.5" stroke="rgba(255,255,255,.3)"/><path d="M2.5 5.5V4a3.5 3.5 0 017 0v1.5" stroke="rgba(255,255,255,.3)"/></svg>
+        <svg width="12" height="14" viewBox="0 0 12 14" fill="none"><rect x=".5" y="5.5" width="11" height="8" rx="1.5" stroke="rgba(255,255,255,.28)"/><path d="M2.5 5.5V4a3.5 3.5 0 017 0v1.5" stroke="rgba(255,255,255,.28)"/></svg>
         Pagamento 100% seguro via Kiwify
       </p>
     </div>
@@ -599,7 +629,7 @@ footer { background: var(--ink); border-top: 1px solid var(--border); padding: 4
     <span class="label" style="margin-bottom:20px;">Decisão estratégica</span>
     <h2>A reforma vai acontecer.<br>A pergunta é quem vai estar preparado.</h2>
     <p>Empresas que entendem o sistema tributário pagam exatamente o que devem — nem mais, nem menos. As que não entendem pagam mais. Sempre.</p>
-    <a href="{{CHECKOUT_URL}}" class="btn btn-gold btn-lg">Garantir o Guia — R$47,00</a>
+    <a href="{{CHECKOUT_URL}}" class="btn btn-white btn-lg">Garantir o Guia — R$47,00</a>
     <p class="hero-note" style="margin-top:18px;">7 dias de garantia · Acesso imediato · Atualizado com EC 132/2023</p>
   </div>
 </section>
@@ -609,12 +639,19 @@ footer { background: var(--ink); border-top: 1px solid var(--border); padding: 4
   <div class="wrap">
     <div class="footer-row">
       <div class="logo">
-        <svg width="26" height="30" viewBox="0 0 30 36" fill="none">
-          <path d="M15 1.5L1.5 7.2v10.8C1.5 27.3 7.8 34.8 15 36.5c7.2-1.7 13.5-9.2 13.5-18.5V7.2L15 1.5z" stroke="rgba(255,255,255,.35)" stroke-width="1.4" fill="none"/>
-          <path d="M9.5 18.5l4 4 7.5-8" stroke="#C8973A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+        <svg width="28" height="36" viewBox="0 0 52 64" fill="none">
+          <rect x="1" y="1" width="50" height="50" stroke="#8A96A2" stroke-width="1" fill="none"/>
+          <path d="M9 8 H43 V31 Q43 43 26 49.5 Q9 43 9 31 Z" stroke="#8A96A2" stroke-width="1" fill="none"/>
+          <line x1="9" y1="21.5" x2="43" y2="21.5" stroke="#8A96A2" stroke-width=".65"/>
+          <line x1="26" y1="10" x2="26" y2="21" stroke="#8A96A2" stroke-width="1.1" stroke-linecap="round"/>
+          <line x1="21" y1="10" x2="21" y2="15.5" stroke="#8A96A2" stroke-width=".9" stroke-linecap="round"/>
+          <line x1="31" y1="10" x2="31" y2="15.5" stroke="#8A96A2" stroke-width=".9" stroke-linecap="round"/>
+          <path d="M14 25.5 Q26 36.5 38 25.5" stroke="#8A96A2" stroke-width=".9" fill="none"/>
+          <path d="M7 53.5 Q2.5 46 5.5 37" stroke="#8A96A2" stroke-width=".7" fill="none" opacity=".5"/>
+          <path d="M45 53.5 Q49.5 46 46.5 37" stroke="#8A96A2" stroke-width=".7" fill="none" opacity=".5"/>
         </svg>
         <div>
-          <div class="logo-name" style="font-size:13px;color:rgba(255,255,255,.5);">Grupo Barbosa</div>
+          <div class="logo-name" style="font-size:12px;color:var(--svd);">Grupo Barbosa<span style="color:var(--svd);">.</span></div>
           <div class="logo-sub">Gestão Tributária</div>
         </div>
       </div>
