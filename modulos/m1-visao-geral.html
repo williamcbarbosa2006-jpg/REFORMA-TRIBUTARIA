@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>Módulo 1 — A Reforma do Zero | Grupo Barbosa</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#1B2B4B; --navy-mid:#253860;
+  --gold:#C49A2A; --gold-light:#E8C46A; --gold-soft:#FDF8EC;
+  --white:#FFFFFF; --off-white:#F8F7F5; --beige:#F2EDE5;
+  --text:#1A1A1A; --text-muted:#5A5A5A; --border:rgba(0,0,0,.08);
+}
+
+/* A5 PRINT */
+@page { size: A5 portrait; margin: 16mm 18mm 20mm 18mm; }
+@page cover { margin: 0; }
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: 'DM Sans', sans-serif; font-size: 9.5pt; color: var(--text); background: #fff; }
+
+/* CAPA */
+.page-cover {
+  page: cover;
+  width: 148mm; height: 210mm;
+  background: var(--navy);
+  display: flex; flex-direction: column;
+  justify-content: center; align-items: center;
+  text-align: center; padding: 20mm 16mm;
+  position: relative; overflow: hidden;
+  page-break-after: always;
+}
+.page-cover::before {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+  background: radial-gradient(ellipse at 70% 30%, rgba(196,154,42,.12), transparent 65%);
+}
+.cover-inner { position: relative; z-index: 1; width: 100%; }
+.cover-tag {
+  display: inline-block;
+  background: rgba(196,154,42,.2); border: 1px solid rgba(196,154,42,.4);
+  color: var(--gold-light); font-size: 7pt; font-weight: 700;
+  letter-spacing: .18em; text-transform: uppercase;
+  padding: 4px 14px; border-radius: 20px; margin-bottom: 16mm;
+}
+.cover-serie {
+  font-size: 7pt; font-weight: 700; letter-spacing: .18em;
+  text-transform: uppercase; color: rgba(255,255,255,.45); margin-bottom: 4mm;
+}
+.cover-num {
+  font-family: 'Playfair Display', serif;
+  font-size: 64pt; font-weight: 700;
+  color: rgba(196,154,42,.2); line-height: 1;
+  margin-bottom: 4mm; display: block;
+}
+.cover-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 20pt; font-weight: 700; color: #fff;
+  line-height: 1.2; margin-bottom: 6mm;
+}
+.cover-title em { font-style: italic; color: var(--gold-light); }
+.cover-sub {
+  font-size: 9pt; color: rgba(255,255,255,.6);
+  line-height: 1.6; max-width: 100mm; margin: 0 auto 12mm;
+}
+.cover-line {
+  width: 24mm; height: 1px; background: var(--gold);
+  margin: 0 auto 6mm; opacity: .5;
+}
+.cover-logo {
+  font-family: 'Playfair Display', serif;
+  font-size: 11pt; font-weight: 700; color: rgba(255,255,255,.7);
+}
+.cover-logo span { color: var(--gold); }
+.cover-logo small {
+  display: block; font-family: 'DM Sans', sans-serif;
+  font-size: 7pt; color: rgba(255,255,255,.4);
+  letter-spacing: .12em; text-transform: uppercase;
+  font-weight: 400; margin-top: 2px;
+}
+
+/* QUEBRAS DE PÁGINA */
+.page-break { page-break-after: always; }
+.no-break { page-break-inside: avoid; }
+
+/* TIPOGRAFIA */
+h2 {
+  font-family: 'Playfair Display', serif; font-size: 15pt;
+  font-weight: 700; color: var(--navy); margin-bottom: 4mm;
+  line-height: 1.2; padding-bottom: 2.5mm;
+  border-bottom: 2px solid var(--gold-soft);
+}
+h3 {
+  font-family: 'Playfair Display', serif; font-size: 11.5pt;
+  font-weight: 700; color: var(--navy-mid); margin: 5mm 0 2.5mm;
+  line-height: 1.3;
+}
+h4 {
+  font-size: 9pt; font-weight: 700; color: var(--navy);
+  text-transform: uppercase; letter-spacing: .1em; margin: 4mm 0 2mm;
+}
+p { line-height: 1.65; margin-bottom: 3mm; }
+.eyebrow {
+  font-size: 6.5pt; font-weight: 700; letter-spacing: .2em;
+  text-transform: uppercase; color: var(--gold); margin-bottom: 2mm;
+  display: block;
+}
+
+/* COMPONENTES */
+.callout {
+  background: var(--beige); border-left: 3.5px solid var(--gold);
+  border-radius: 0 7px 7px 0; padding: 4mm 5mm; margin: 4mm 0;
+}
+.callout p { margin-bottom: 0; font-size: 9pt; }
+.callout strong { color: var(--navy); }
+
+.alert {
+  background: #fff3cd; border-left: 3.5px solid #f0a500;
+  border-radius: 0 7px 7px 0; padding: 4mm 5mm; margin: 4mm 0;
+}
+.alert p { margin-bottom: 0; font-size: 9pt; }
+
+.quote-box {
+  background: var(--navy); border-radius: 8px;
+  padding: 5mm 6mm; margin: 5mm 0;
+}
+.quote-box p {
+  font-family: 'Playfair Display', serif; font-size: 9.5pt;
+  font-style: italic; color: rgba(250,248,245,.9); margin-bottom: 2mm;
+}
+.quote-box cite {
+  font-size: 6pt; font-weight: 700; letter-spacing: .14em;
+  text-transform: uppercase; color: var(--gold-light);
+  font-style: normal;
+}
+
+table.mt { width: 100%; border-collapse: collapse; margin: 4mm 0; font-size: 8.5pt; }
+table.mt thead th {
+  background: var(--navy); color: #fff; padding: 3mm 4mm;
+  text-align: left; font-weight: 600; font-size: 8pt;
+}
+table.mt tbody td {
+  padding: 2.5mm 4mm; border-bottom: 1px solid var(--border); vertical-align: top;
+}
+table.mt tbody tr:nth-child(even) td { background: var(--off-white); }
+table.mt td:first-child { background: var(--beige) !important; font-weight: 600; color: var(--navy); }
+
+.timeline-item {
+  display: flex; gap: 4mm; margin-bottom: 4mm; page-break-inside: avoid;
+}
+.tl-year {
+  background: var(--navy); color: var(--gold-light);
+  font-size: 8pt; font-weight: 700; padding: 2mm 3mm;
+  border-radius: 6px; white-space: nowrap; align-self: flex-start;
+  min-width: 18mm; text-align: center;
+}
+.tl-body { flex: 1; }
+.tl-body strong { color: var(--navy); font-size: 9pt; }
+.tl-body p { font-size: 8.5pt; color: var(--text-muted); margin-top: 1mm; margin-bottom: 0; }
+
+ul.styled { list-style: none; padding: 0; margin: 2mm 0 4mm; }
+ul.styled li {
+  padding: 2mm 0 2mm 5mm; position: relative;
+  font-size: 9pt; border-bottom: 1px solid var(--border);
+}
+ul.styled li:last-child { border-bottom: none; }
+ul.styled li::before { content: '→'; position: absolute; left: 0; color: var(--gold); font-weight: 700; }
+
+.two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 4mm; margin: 4mm 0; }
+.col-card {
+  background: var(--off-white); border-radius: 6px;
+  padding: 4mm; border-top: 3px solid var(--gold);
+}
+.col-card h5 {
+  font-size: 8pt; font-weight: 700; color: var(--navy);
+  margin-bottom: 2mm; text-transform: uppercase; letter-spacing: .06em;
+}
+.col-card p { font-size: 8pt; color: var(--text-muted); margin: 0; line-height: 1.5; }
+
+.pill {
+  display: inline-block; background: var(--gold-soft);
+  color: var(--navy); font-size: 7pt; font-weight: 700;
+  padding: 2px 8px; border-radius: 12px; margin: 1mm 1mm 1mm 0;
+  border: 1px solid rgba(196,154,42,.3);
+}
+
+.nota-autor {
+  background: var(--navy); border-radius: 8px;
+  padding: 5mm 6mm; margin: 5mm 0;
+  font-size: 8.5pt; color: rgba(255,255,255,.75); line-height: 1.6;
+}
+.nota-autor strong { color: var(--gold-light); }
+
+/* RODAPÉ DE PÁGINA */
+@page {
+  @bottom-center {
+    content: "Grupo Barbosa — Gestão Tributária  ·  Reforma Tributária Descomplicada  ·  Módulo 1";
+    font-size: 6.5pt; color: #aaa; font-family: 'DM Sans', sans-serif;
+  }
+  @bottom-right {
+    content: counter(page);
+    font-size: 6.5pt; color: #aaa; font-family: 'DM Sans', sans-serif;
+  }
+}
+</style>
+</head>
+<body>
+
+<!-- ===== CAPA ===== -->
+<div class="page-cover">
+  <div class="cover-inner">
+    <span class="cover-tag">Reforma Tributária Descomplicada</span>
+    <div class="cover-serie">Módulo</div>
+    <span class="cover-num">1</span>
+    <h1 class="cover-title">A Reforma <em>do Zero</em></h1>
+    <p class="cover-sub">O que é, por que aconteceu, o que muda e o cronograma completo até 2033</p>
+    <div class="cover-line"></div>
+    <div class="cover-logo">Grupo <span>Barbosa</span><small>Gestão Tributária</small></div>
+  </div>
+</div>
+
+<!-- ===== PÁGINA 2: APRESENTAÇÃO ===== -->
+<div class="page-break no-break">
+  <span class="eyebrow">Bem-vindo ao Módulo 1</span>
+  <h2>Antes de qualquer número, você precisa entender o cenário</h2>
+  <p>A Reforma Tributária é frequentemente apresentada como uma série de siglas — CBS, IBS, IS — sem que o contexto por trás delas seja explicado. Neste primeiro módulo, vamos construir esse contexto do zero.</p>
+  <p>Você vai entender <strong>por que</strong> o Brasil precisava de uma reforma, <strong>o que</strong> o sistema antigo fazia de errado, <strong>o que</strong> a EC 132/2023 aprovada efetivamente muda e <strong>quando</strong> cada mudança chega para o seu negócio.</p>
+
+  <div class="callout">
+    <p><strong>Este módulo responde:</strong> O que é a Reforma Tributária, por que ela foi necessária, quais tributos ela substitui e qual é o cronograma de transição até 2033.</p>
+  </div>
+
+  <h3>Por que este conhecimento importa para você agora</h3>
+  <p>Muitos empresários estão esperando "a coisa concretizar" para estudar o assunto. Mas as decisões de hoje — precificação de contratos, estrutura societária, mix de produtos e serviços — já estão sendo afetadas pelo novo cenário que se aproxima.</p>
+  <p>Entender a reforma agora te coloca em uma posição muito mais estratégica do que reagir às pressas em 2026.</p>
+
+  <div class="nota-autor">
+    <strong>📝 Nota do autor:</strong> [Espaço reservado para você adicionar sua perspectiva como especialista do Grupo Barbosa — por que este módulo é particularmente relevante para o empresário brasileiro hoje, com base na sua experiência prática de campo.]
+  </div>
+</div>
+
+<!-- ===== PÁGINA 3: O SISTEMA ANTIGO ===== -->
+<div class="page-break">
+  <span class="eyebrow">O Ponto de Partida</span>
+  <h2>O sistema tributário que a reforma vai substituir</h2>
+  <p>Para entender onde chegamos, é preciso entender de onde saímos. O Brasil tinha — e ainda tem, no período de transição — um dos sistemas de tributação sobre consumo mais complexos do mundo.</p>
+
+  <h3>Os 5 tributos que serão substituídos</h3>
+  <table class="mt">
+    <thead>
+      <tr><th>Tributo</th><th>Esfera</th><th>Incide sobre</th><th>Quem recolhe</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>PIS</td><td>Federal</td><td>Faturamento / Receitas</td><td>Empresa</td></tr>
+      <tr><td>COFINS</td><td>Federal</td><td>Faturamento / Receitas</td><td>Empresa</td></tr>
+      <tr><td>IPI</td><td>Federal</td><td>Produtos industrializados</td><td>Indústria</td></tr>
+      <tr><td>ICMS</td><td>Estadual</td><td>Circulação de mercadorias e alguns serviços</td><td>Empresa</td></tr>
+      <tr><td>ISS</td><td>Municipal</td><td>Prestação de serviços</td><td>Empresa prestadora</td></tr>
+    </tbody>
+  </table>
+
+  <h3>Os problemas que esse sistema criava</h3>
+  <ul class="styled">
+    <li><strong>Cumulatividade:</strong> tributos cobrados em cascata — cada etapa da cadeia tributava sobre o tributo já pago na etapa anterior</li>
+    <li><strong>Guerra fiscal:</strong> estados e municípios concediam benefícios de ICMS/ISS para atrair empresas, criando distorções nacionais</li>
+    <li><strong>Complexidade absurda:</strong> mais de 5.000 regras de ICMS diferentes entre os estados</li>
+    <li><strong>Custo de conformidade:</strong> o Brasil gasta em média 1.500 horas/ano para calcular impostos — o maior do mundo</li>
+    <li><strong>Princípio de origem:</strong> tributo ficava no estado onde o produto era fabricado, não onde era consumido — beneficiando estados industriais</li>
+  </ul>
+
+  <div class="callout">
+    <p><strong>Em resumo:</strong> um sistema que onerava produção, incentivava planejamentos artificiais e tornava a conformidade tributária um custo de negócio sem paralelo no mundo desenvolvido.</p>
+  </div>
+</div>
+
+<!-- ===== PÁGINA 4: A EC 132/2023 ===== -->
+<div class="page-break">
+  <span class="eyebrow">A Aprovação</span>
+  <h2>O que a EC 132/2023 efetivamente fez</h2>
+  <p>Após mais de 30 anos de discussões, a Emenda Constitucional nº 132 foi aprovada pelo Congresso Nacional em <strong>dezembro de 2023</strong>. Ela é o alicerce jurídico de toda a reforma — as leis complementares que virão depois regulamentam os detalhes.</p>
+
+  <h3>As 3 mudanças estruturais da EC 132</h3>
+  <div class="two-col">
+    <div class="col-card">
+      <h5>1. Unificação dos tributos</h5>
+      <p>PIS + COFINS → CBS (federal)<br>ICMS + ISS → IBS (estados + municípios)<br>Produtos específicos → IS (Imposto Seletivo)</p>
+    </div>
+    <div class="col-card">
+      <h5>2. Destino, não origem</h5>
+      <p>O tributo passa a ser devido no estado e município onde o bem é consumido ou o serviço é utilizado — eliminando a guerra fiscal.</p>
+    </div>
+    <div class="col-card">
+      <h5>3. Não cumulatividade plena</h5>
+      <p>Todo imposto pago nas etapas anteriores da cadeia gera crédito — sem exceções, sem restrições de setor.</p>
+    </div>
+    <div class="col-card">
+      <h5>4. Base ampla e uniforme</h5>
+      <p>CBS e IBS incidem sobre praticamente todos os bens e serviços, com poucas exceções constitucionais (saúde, educação, cesta básica).</p>
+    </div>
+  </div>
+
+  <div class="quote-box">
+    <p>"A reforma substitui um sistema tributário que funcionava contra a produção por um que funciona a favor do consumidor e da eficiência econômica."</p>
+    <cite>Conceito central da EC 132/2023</cite>
+  </div>
+
+  <div class="nota-autor">
+    <strong>📝 Espaço para seus insights:</strong> [Adicione aqui suas observações sobre o que a EC 132 significa na prática para os clientes do Grupo Barbosa — exemplos reais de impacto que você já identificou com seus clientes.]
+  </div>
+</div>
+
+<!-- ===== PÁGINA 5: CRONOGRAMA ===== -->
+<div class="page-break">
+  <span class="eyebrow">O Calendário</span>
+  <h2>O cronograma completo: o que muda em cada ano</h2>
+  <p>A transição é gradual — de 2026 a 2033. Isso foi desenhado para evitar choque de caixa nas empresas e dar tempo para a adaptação. Mas "gradual" não significa "lento demais para se preocupar agora".</p>
+
+  <div class="timeline-item no-break">
+    <div class="tl-year">2024–2025</div>
+    <div class="tl-body">
+      <strong>Regulamentação e preparação</strong>
+      <p>Publicação das Leis Complementares que regulamentam CBS, IBS e IS. Criação do Comitê Gestor do IBS. Período para empresas se familiarizarem com o novo sistema.</p>
+    </div>
+  </div>
+  <div class="timeline-item no-break">
+    <div class="tl-year">2026</div>
+    <div class="tl-body">
+      <strong>Início da CBS e IBS em alíquota mínima (fase teste)</strong>
+      <p>CBS a 0,9% e IBS a 0,1% — coexistindo com todos os tributos antigos. Empresas precisam aprender a conviver com dois sistemas simultaneamente. PIS/COFINS reduzidos proporcionalmente.</p>
+    </div>
+  </div>
+  <div class="timeline-item no-break">
+    <div class="tl-year">2027–2028</div>
+    <div class="tl-body">
+      <strong>CBS plena; IBS ainda coexistindo</strong>
+      <p>CBS substitui completamente PIS e COFINS. IBS ainda em alíquota parcial, convivendo com ICMS e ISS reduzidos. Imposto Seletivo começa a vigorar.</p>
+    </div>
+  </div>
+  <div class="timeline-item no-break">
+    <div class="tl-year">2029–2032</div>
+    <div class="tl-body">
+      <strong>Redução gradual de ICMS e ISS</strong>
+      <p>ICMS e ISS são reduzidos 1/5 por ano enquanto IBS aumenta proporcionalmente. As empresas passam pela maior fase de adaptação — dois sistemas com pesos diferentes a cada ano.</p>
+    </div>
+  </div>
+  <div class="timeline-item no-break">
+    <div class="tl-year">2033</div>
+    <div class="tl-body">
+      <strong>Sistema novo completamente vigente</strong>
+      <p>ICMS e ISS extintos. Somente CBS, IBS e IS em vigor. A guerra fiscal estadual e municipal acaba juridicamente. Sistema novo 100% operacional.</p>
+    </div>
+  </div>
+
+  <div class="alert">
+    <p><strong>⚠️ Atenção:</strong> O período mais crítico é <strong>2029–2032</strong>, quando os dois sistemas coexistem com pesos variados a cada ano. Empresas precisarão de dois controles tributários simultâneos.</p>
+  </div>
+</div>
+
+<!-- ===== PÁGINA 6: RESUMO E PRÓXIMOS PASSOS ===== -->
+<div class="no-break">
+  <span class="eyebrow">Resumo do Módulo 1</span>
+  <h2>O que você precisa carregar daqui</h2>
+
+  <ul class="styled">
+    <li>O Brasil tinha 5 tributos sobre consumo (PIS, COFINS, IPI, ICMS, ISS) — complexos, cumulativos e geradores de guerra fiscal</li>
+    <li>A EC 132/2023 os substitui por 3: CBS (federal), IBS (subnacional) e IS (seletivo sobre produtos específicos)</li>
+    <li>Os novos tributos seguem o princípio de destino (não de origem) e não cumulatividade plena</li>
+    <li>A transição começa em 2026 e se completa em 2033 — de forma gradual</li>
+    <li>O período mais crítico de adaptação é 2029–2032, quando dois sistemas coexistem</li>
+    <li>Quem se preparar agora vai ter vantagem estratégica e menor custo de adequação</li>
+  </ul>
+
+  <div class="callout">
+    <p><strong>No próximo módulo:</strong> CBS, IBS e Imposto Seletivo explicados em detalhe — o que cada um é, como é calculado, quem paga e o que gera crédito.</p>
+  </div>
+
+  <div class="nota-autor">
+    <strong>📝 Mensagem final do autor:</strong> [Espaço para uma mensagem sua encerrando o módulo — pode ser uma perspectiva prática sobre o que você vê os seus clientes enfrentando em relação a este tema, ou uma recomendação de ação imediata.]
+  </div>
+</div>
+
+</body>
+</html>

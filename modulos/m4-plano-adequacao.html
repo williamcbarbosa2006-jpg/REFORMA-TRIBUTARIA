@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>Módulo 4 — Plano de Adequação | Grupo Barbosa</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#1B2B4B;--navy-mid:#253860;
+  --gold:#C49A2A;--gold-light:#E8C46A;--gold-soft:#FDF8EC;
+  --white:#FFFFFF;--off-white:#F8F7F5;--beige:#F2EDE5;
+  --text:#1A1A1A;--text-muted:#5A5A5A;--border:rgba(0,0,0,.08);
+  --green:#1E5C2A;--green-light:#e8f5ea;
+  --red:#c62828;--red-light:#fdecea;
+  --orange:#e65100;--orange-light:#fff3e0;
+}
+@page{size:A5 portrait;margin:16mm 18mm 20mm 18mm;}
+@page cover{margin:0;}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'DM Sans',sans-serif;font-size:9.5pt;color:var(--text);background:#fff;}
+
+.page-cover{page:cover;width:148mm;height:210mm;background:linear-gradient(160deg,#0f1e35 0%,var(--navy) 50%,#1a3356 100%);display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:20mm 16mm;position:relative;overflow:hidden;page-break-after:always;}
+.page-cover::before{content:'';position:absolute;top:0;left:0;right:0;bottom:0;background:radial-gradient(ellipse at 50% 80%,rgba(196,154,42,.14),transparent 60%);}
+.cover-inner{position:relative;z-index:1;width:100%;}
+.cover-tag{display:inline-block;background:rgba(196,154,42,.2);border:1px solid rgba(196,154,42,.4);color:var(--gold-light);font-size:7pt;font-weight:700;letter-spacing:.18em;text-transform:uppercase;padding:4px 14px;border-radius:20px;margin-bottom:16mm;}
+.cover-serie{font-size:7pt;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.45);margin-bottom:4mm;}
+.cover-num{font-family:'Playfair Display',serif;font-size:64pt;font-weight:700;color:rgba(196,154,42,.2);line-height:1;margin-bottom:4mm;display:block;}
+.cover-title{font-family:'Playfair Display',serif;font-size:18pt;font-weight:700;color:#fff;line-height:1.2;margin-bottom:6mm;}
+.cover-title em{font-style:italic;color:var(--gold-light);}
+.cover-sub{font-size:9pt;color:rgba(255,255,255,.6);line-height:1.6;max-width:100mm;margin:0 auto 12mm;}
+.cover-line{width:24mm;height:1px;background:var(--gold);margin:0 auto 6mm;opacity:.5;}
+.cover-logo{font-family:'Playfair Display',serif;font-size:11pt;font-weight:700;color:rgba(255,255,255,.7);}
+.cover-logo span{color:var(--gold);}
+.cover-logo small{display:block;font-family:'DM Sans',sans-serif;font-size:7pt;color:rgba(255,255,255,.4);letter-spacing:.12em;text-transform:uppercase;font-weight:400;margin-top:2px;}
+
+.page-break{page-break-after:always;}
+.no-break{page-break-inside:avoid;}
+
+h2{font-family:'Playfair Display',serif;font-size:15pt;font-weight:700;color:var(--navy);margin-bottom:4mm;line-height:1.2;padding-bottom:2.5mm;border-bottom:2px solid var(--gold-soft);}
+h3{font-family:'Playfair Display',serif;font-size:11.5pt;font-weight:700;color:var(--navy-mid);margin:5mm 0 2.5mm;line-height:1.3;}
+p{line-height:1.65;margin-bottom:3mm;}
+.eyebrow{font-size:6.5pt;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:2mm;display:block;}
+
+.callout{background:var(--beige);border-left:3.5px solid var(--gold);border-radius:0 7px 7px 0;padding:4mm 5mm;margin:4mm 0;}
+.callout p{margin-bottom:0;font-size:9pt;}
+.callout strong{color:var(--navy);}
+
+.alert-orange{background:var(--orange-light);border-left:3.5px solid var(--orange);border-radius:0 7px 7px 0;padding:4mm 5mm;margin:4mm 0;}
+.alert-orange p{margin-bottom:0;font-size:9pt;}
+
+.quote-box{background:var(--navy);border-radius:8px;padding:5mm 6mm;margin:5mm 0;}
+.quote-box p{font-family:'Playfair Display',serif;font-size:9.5pt;font-style:italic;color:rgba(250,248,245,.9);margin-bottom:2mm;}
+.quote-box cite{font-size:6pt;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--gold-light);font-style:normal;}
+
+/* CHECKLIST */
+.checklist{list-style:none;padding:0;margin:3mm 0;}
+.checklist li{display:flex;align-items:flex-start;gap:3mm;padding:2.5mm 0;border-bottom:1px solid var(--border);font-size:9pt;}
+.checklist li:last-child{border-bottom:none;}
+.checklist .box{width:4mm;height:4mm;border:1.5px solid var(--gold);border-radius:2px;flex-shrink:0;margin-top:1mm;}
+.checklist .txt{flex:1;line-height:1.5;}
+.checklist .txt strong{color:var(--navy);}
+.checklist .txt small{display:block;font-size:8pt;color:var(--text-muted);margin-top:.5mm;}
+
+/* PASSO A PASSO */
+.step{display:flex;gap:4mm;margin-bottom:5mm;page-break-inside:avoid;}
+.step-num{width:8mm;height:8mm;background:var(--navy);color:var(--gold-light);font-size:9pt;font-weight:700;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1mm;}
+.step-body h4{font-family:'Playfair Display',serif;font-size:10.5pt;font-weight:700;color:var(--navy);margin-bottom:2mm;}
+.step-body p{font-size:9pt;color:var(--text-muted);margin-bottom:1.5mm;}
+
+/* ERROS */
+.erro-card{background:var(--red-light);border-radius:8px;padding:4mm 5mm;margin-bottom:3mm;border-left:3px solid var(--red);page-break-inside:avoid;}
+.erro-card h5{font-size:9pt;font-weight:700;color:var(--red);margin-bottom:2mm;}
+.erro-card p{font-size:8.5pt;color:var(--text-muted);margin:0;line-height:1.5;}
+
+/* TIMELINE HORIZONTAL */
+.timeline-fase{display:grid;grid-template-columns:repeat(4,1fr);gap:2mm;margin:4mm 0;}
+.fase{background:var(--off-white);border-radius:6px;padding:3mm;text-align:center;border-top:3px solid var(--navy);}
+.fase.ativo{border-top-color:var(--gold);background:var(--gold-soft);}
+.fase h5{font-size:7.5pt;font-weight:700;color:var(--navy);margin-bottom:1.5mm;}
+.fase p{font-size:7pt;color:var(--text-muted);line-height:1.4;margin:0;}
+
+.nota-autor{background:var(--navy);border-radius:8px;padding:5mm 6mm;margin:5mm 0;font-size:8.5pt;color:rgba(255,255,255,.75);line-height:1.6;}
+.nota-autor strong{color:var(--gold-light);}
+
+table.mt{width:100%;border-collapse:collapse;margin:4mm 0;font-size:8.5pt;}
+table.mt thead th{background:var(--navy);color:#fff;padding:3mm 4mm;text-align:left;font-weight:600;font-size:8pt;}
+table.mt tbody td{padding:2.5mm 4mm;border-bottom:1px solid var(--border);vertical-align:top;}
+table.mt tbody tr:nth-child(even) td{background:var(--off-white);}
+table.mt td:first-child{background:var(--beige) !important;font-weight:600;color:var(--navy);}
+
+.cta-box{background:var(--navy);border-radius:10px;padding:6mm 7mm;margin:5mm 0;text-align:center;}
+.cta-box h3{font-family:'Playfair Display',serif;font-size:13pt;color:#fff;margin-bottom:3mm;}
+.cta-box p{font-size:9pt;color:rgba(255,255,255,.7);margin-bottom:3mm;}
+.cta-box .cta-url{font-size:9pt;color:var(--gold-light);font-weight:700;letter-spacing:.04em;}
+
+@page{@bottom-center{content:"Grupo Barbosa — Gestão Tributária  ·  Reforma Tributária Descomplicada  ·  Módulo 4";font-size:6.5pt;color:#aaa;font-family:'DM Sans',sans-serif;}@bottom-right{content:counter(page);font-size:6.5pt;color:#aaa;font-family:'DM Sans',sans-serif;}}
+</style>
+</head>
+<body>
+
+<div class="page-cover">
+  <div class="cover-inner">
+    <span class="cover-tag">Reforma Tributária Descomplicada</span>
+    <div class="cover-serie">Módulo</div>
+    <span class="cover-num">4</span>
+    <h1 class="cover-title">Plano de <em>Adequação</em></h1>
+    <p class="cover-sub">O que fazer agora, em 2025, em 2026 e nos anos seguintes — com checklist completo e os erros a evitar</p>
+    <div class="cover-line"></div>
+    <div class="cover-logo">Grupo <span>Barbosa</span><small>Gestão Tributária</small></div>
+  </div>
+</div>
+
+<!-- INTRO -->
+<div class="page-break no-break">
+  <span class="eyebrow">Módulo 4 — O Módulo de Ação</span>
+  <h2>Conhecimento sem ação não muda nada</h2>
+  <p>Você passou pelos três primeiros módulos e agora entende o cenário, os tributos e os impactos por setor. Este módulo transforma todo esse conhecimento em um plano de ação concreto.</p>
+  <p>Vamos cobrir: o diagnóstico da sua situação atual, os passos a tomar em cada fase, o checklist completo de adequação e os erros que a maioria dos empresários vai cometer — para que você não os repita.</p>
+
+  <div class="timeline-fase">
+    <div class="fase ativo">
+      <h5>Agora<br>2025</h5>
+      <p>Diagnóstico e preparação estratégica</p>
+    </div>
+    <div class="fase">
+      <h5>2026</h5>
+      <p>CBS e IBS em alíquota mínima — adaptação operacional</p>
+    </div>
+    <div class="fase">
+      <h5>2027–28</h5>
+      <p>CBS plena, IBS parcial — dois sistemas paralelos</p>
+    </div>
+    <div class="fase">
+      <h5>2029–33</h5>
+      <p>Transição final — sistema novo 100%</p>
+    </div>
+  </div>
+
+  <div class="nota-autor">
+    <strong>📝 Nota do autor:</strong> [Este é o módulo mais prático e direto ao ponto. Adicione aqui sua perspectiva sobre a urgência real de agir agora — com base no que você vê acontecendo com empresas que se planejam versus as que reagem. Um exemplo prático (sem identificar o cliente) é muito poderoso aqui.]
+  </div>
+</div>
+
+<!-- DIAGNÓSTICO -->
+<div class="page-break">
+  <span class="eyebrow">Passo 1 — A Base de Tudo</span>
+  <h2>Diagnóstico: onde sua empresa está hoje</h2>
+  <p>Antes de qualquer adequação, você precisa entender com precisão qual é sua carga tributária atual. Sem esse número, é impossível medir o impacto da reforma — positivo ou negativo.</p>
+
+  <div class="step">
+    <div class="step-num">1</div>
+    <div class="step-body">
+      <h4>Levante sua carga tributária real sobre o faturamento</h4>
+      <p>Peça ao seu contador um demonstrativo de todos os tributos pagos nos últimos 12 meses como percentual do faturamento bruto: PIS, COFINS, ICMS (quando aplicável), ISS (quando aplicável), IRPJ, CSLL e contribuições previdenciárias.</p>
+    </div>
+  </div>
+  <div class="step">
+    <div class="step-num">2</div>
+    <div class="step-body">
+      <h4>Identifique seu enquadramento tributário atual</h4>
+      <p>Confirme se você está no Simples Nacional, Lucro Presumido ou Lucro Real — e há quanto tempo. Verifique se seu regime atual ainda é o mais adequado à sua realidade de faturamento e margem.</p>
+    </div>
+  </div>
+  <div class="step">
+    <div class="step-num">3</div>
+    <div class="step-body">
+      <h4>Mapeie sua cadeia de fornecedores e clientes</h4>
+      <p>Identifique quanto do seu custo de aquisição (matérias-primas, insumos, serviços contratados) está em operações que gerariam crédito no novo sistema. Identifique também se seus principais clientes são B2B ou B2C.</p>
+    </div>
+  </div>
+  <div class="step">
+    <div class="step-num">4</div>
+    <div class="step-body">
+      <h4>Simule o cenário sob CBS + IBS</h4>
+      <p>Com base nos dados acima, peça ao seu contador (ou ao Grupo Barbosa) uma simulação comparativa: carga atual versus carga estimada sob o novo sistema. Este é o número mais importante para a sua tomada de decisão.</p>
+    </div>
+  </div>
+
+  <div class="callout">
+    <p><strong>Dica prática:</strong> Se seu contador não consegue fazer essa simulação com os dados da sua empresa, é um sinal claro de que você precisa de apoio especializado em planejamento tributário para a reforma.</p>
+  </div>
+</div>
+
+<!-- CHECKLIST -->
+<div class="page-break">
+  <span class="eyebrow">Checklist Completo</span>
+  <h2>O que sua empresa precisa fazer e quando</h2>
+  <p>Use este checklist como guia. Marque cada item conforme você avança na adequação.</p>
+
+  <h3>Agora — 2025</h3>
+  <ul class="checklist">
+    <li><div class="box"></div><div class="txt"><strong>Fazer o diagnóstico tributário atual</strong><small>Carga real, regime, perfil B2B/B2C, mapa de insumos — conforme Passo 1 acima</small></div></li>
+    <li><div class="box"></div><div class="txt"><strong>Revisar o enquadramento no regime tributário</strong><small>Avaliar se o regime atual ainda é ótimo para o cenário pós-reforma, especialmente se estiver no Simples e vender B2B</small></div></li>
+    <li><div class="box"></div><div class="txt"><strong>Revisar contratos de longo prazo</strong><small>Contratos com vigência após 2026 precisam de cláusulas de reequilíbrio tributário — negocie isso agora, não depois</small></div></li>
+    <li><div class="box"></div><div class="txt"><strong>Capacitar a equipe financeira e contábil</strong><small>Sua equipe interna (ou seu escritório contábil) precisa estar preparada para o novo sistema antes de 2026</small></div></li>
+    <li><div class="box"></div><div class="txt"><strong>Avaliar oportunidades de recuperação de crédito</strong><small>Com o novo sistema, créditos que hoje são vedados podem se tornar disponíveis. Identifique e recupere antes da transição</small></div></li>
+  </ul>
+
+  <h3>Em 2026 — Início da Transição</h3>
+  <ul class="checklist">
+    <li><div class="box"></div><div class="txt"><strong>Adequar o sistema de gestão (ERP) para CBS e IBS</strong><small>Todo software de emissão de nota fiscal e controle financeiro precisará suportar os novos tributos em 2026</small></div></li>
+    <li><div class="box"></div><div class="txt"><strong>Adaptar o processo de recolhimento para split payment</strong><small>Entender como o split payment afeta o fluxo de caixa e adaptar o planejamento financeiro</small></div></li>
+    <li><div class="box"></div><div class="txt"><strong>Revisar a precificação com base na carga real</strong><small>O novo cálculo pode mudar sua margem. Reprecie antes de perder competitividade ou margem de forma silenciosa</small></div></li>
+    <li><div class="box"></div><div class="txt"><strong>Monitorar a publicação das alíquotas definitivas</strong><small>As alíquotas finais de CBS e IBS serão definidas em lei complementar — acompanhe e refaça a simulação quando publicadas</small></div></li>
+  </ul>
+</div>
+
+<!-- PRECIFICAÇÃO -->
+<div class="page-break">
+  <span class="eyebrow">Ação Crítica</span>
+  <h2>Como revisar sua precificação para o novo cenário</h2>
+  <p>A precificação é provavelmente o ponto de impacto mais imediato da reforma para a maioria das empresas. Seja qual for o resultado da sua simulação — aumento ou redução de carga — sua precificação precisa ser revisada.</p>
+
+  <h3>Cenário 1: sua carga aumenta com a reforma</h3>
+  <p>Você precisa decidir entre absorver o impacto na margem ou repassar para os preços. Esta decisão depende da elasticidade de preço do seu mercado e da sua posição competitiva.</p>
+  <div class="alert-orange">
+    <p><strong>Não espere 2026 para esta conversa:</strong> se seus concorrentes também vão ter aumento de carga, o mercado vai absorver o reajuste. Se você for o único a repassar, perderá clientes. Analise o setor como um todo.</p>
+  </div>
+
+  <h3>Cenário 2: sua carga reduz com a reforma</h3>
+  <p>Uma redução de carga é uma oportunidade estratégica. Você pode reduzir preços para ganhar mercado, manter preços e aumentar margem, ou investir a diferença em crescimento. Decida antes de 2026, não depois.</p>
+
+  <div class="callout">
+    <p><strong>Regra prática:</strong> Nunca calcule o preço de venda usando alíquotas de tributos do sistema antigo após 2026. O erro mais comum será usar a mesma fórmula de markup durante os anos de transição sem ajustar para o novo sistema.</p>
+  </div>
+
+  <h3>A conversa que você precisa ter com seu contador</h3>
+  <p>Leve estas perguntas para a próxima reunião com seu contador ou consultor tributário:</p>
+  <ul class="checklist">
+    <li><div class="box"></div><div class="txt">Qual é a minha carga tributária estimada sob CBS + IBS comparada ao sistema atual?</div></li>
+    <li><div class="box"></div><div class="txt">Meu regime tributário atual ainda é o mais vantajoso a partir de 2026?</div></li>
+    <li><div class="box"></div><div class="txt">Quais dos meus insumos e serviços vão gerar crédito que hoje não geram?</div></li>
+    <li><div class="box"></div><div class="txt">Há algum benefício fiscal que perco com a reforma e preciso contabilizar?</div></li>
+    <li><div class="box"></div><div class="txt">Meus contratos de longo prazo precisam de cláusula de adequação tributária?</div></li>
+  </ul>
+
+  <div class="nota-autor">
+    <strong>📝 Orientação do autor:</strong> [Este é o espaço para você, como especialista do Grupo Barbosa, detalhar como conduzir essa conversa com o contador — e o que fazer se o contador da empresa não estiver preparado para responder essas perguntas com dados concretos.]
+  </div>
+</div>
+
+<!-- ERROS COMUNS -->
+<div class="page-break">
+  <span class="eyebrow">O Que Evitar</span>
+  <h2>Os erros que os empresários vão cometer</h2>
+  <p>Com base na experiência do Grupo Barbosa e na análise das reformas tributárias em outros países, estes são os erros mais prováveis — e os que custam mais caro.</p>
+
+  <div class="erro-card">
+    <h5>Erro 1 — Esperar para "ver como vai ser"</h5>
+    <p>A reforma está aprovada. Os contornos gerais já são conhecidos. Empresas que esperarem 2026 para começar a se adequar vão pagar um custo de urgência alto — em consultoria, em sistemas, e em precificação errada.</p>
+  </div>
+
+  <div class="erro-card">
+    <h5>Erro 2 — Não revisar os contratos de longo prazo</h5>
+    <p>Contratos fechados hoje a preços que assumem a carga tributária atual podem se tornar deficitários ou superlucrativos após 2026. A falta de cláusula de reequilíbrio tributário vai gerar disputas e perdas.</p>
+  </div>
+
+  <div class="erro-card">
+    <h5>Erro 3 — Manter o Simples por inércia</h5>
+    <p>Muitas empresas no Simples Nacional que vendem principalmente para outras empresas vão se tornar menos competitivas a partir de 2026, pois não geram crédito de CBS/IBS para o comprador. Revisar o regime agora pode fazer enorme diferença.</p>
+  </div>
+
+  <div class="erro-card">
+    <h5>Erro 4 — Não capacitar a equipe financeira</h5>
+    <p>O departamento financeiro que não entender o novo sistema vai cometer erros de cálculo de margem, de precificação e de fluxo de caixa durante os anos de transição. A capacitação não é opcional.</p>
+  </div>
+
+  <div class="erro-card">
+    <h5>Erro 5 — Confiar que o contador vai cuidar de tudo</h5>
+    <p>O contador cuida da conformidade. O planejamento tributário estratégico — inclusive a simulação de impactos e a revisão de estrutura para o novo sistema — exige um nível de análise proativa que nem todo escritório contábil está preparado para oferecer.</p>
+  </div>
+
+  <div class="nota-autor">
+    <strong>📝 Complemento do autor:</strong> [Adicione aqui outros erros que você já identificou em conversas com seus clientes — ou comportamentos que você prevê que serão comuns e custosos. Esta seção é muito valorizada pelos leitores pois vem da experiência real do especialista.]
+  </div>
+</div>
+
+<!-- ENCERRAMENTO -->
+<div class="no-break">
+  <span class="eyebrow">Conclusão do Guia</span>
+  <h2>Você chegou ao final — agora é hora de agir</h2>
+
+  <p>Ao longo dos quatro módulos deste guia, você construiu uma visão completa da Reforma Tributária: o que é, como funciona, o que muda para o seu negócio e o que fazer para se adequar.</p>
+
+  <p>O conhecimento que você tem agora coloca você em uma posição de vantagem real sobre os empresários que ainda estão no escuro sobre o assunto. Use essa vantagem.</p>
+
+  <div class="quote-box">
+    <p>"A reforma tributária mais abrangente da história do Brasil é também uma das maiores oportunidades de revisão e otimização tributária que as empresas já tiveram. Os preparados vão colher os frutos. Os despreparados vão pagar a conta."</p>
+    <cite>Grupo Barbosa — Gestão Tributária</cite>
+  </div>
+
+  <h3>Seus próximos passos concretos</h3>
+  <table class="mt">
+    <thead>
+      <tr><th>Prazo</th><th>Ação</th><th>Quem envolve</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Esta semana</td><td>Agendar reunião de diagnóstico com seu contador</td><td>Você + contador</td></tr>
+      <tr><td>Este mês</td><td>Obter simulação comparativa carga atual vs. nova</td><td>Contador / consultor</td></tr>
+      <tr><td>Próximos 3 meses</td><td>Revisar contratos de longo prazo e regime tributário</td><td>Jurídico + contábil</td></tr>
+      <tr><td>Antes de 2026</td><td>Adequar sistemas, equipe e precificação</td><td>Toda a empresa</td></tr>
+    </tbody>
+  </table>
+
+  <div class="cta-box">
+    <h3>Precisa de ajuda especializada?</h3>
+    <p>O Grupo Barbosa oferece o Diagnóstico Tributário Express — 90 minutos de análise personalizada do impacto da reforma no seu negócio, com plano de ação concreto na saída.</p>
+    <p class="cta-url">[Insira aqui o link ou contato do Grupo Barbosa]</p>
+  </div>
+</div>
+
+</body>
+</html>

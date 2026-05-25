@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>Módulo 2 — CBS, IBS e Imposto Seletivo | Grupo Barbosa</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#1B2B4B; --navy-mid:#253860;
+  --gold:#C49A2A; --gold-light:#E8C46A; --gold-soft:#FDF8EC;
+  --white:#FFFFFF; --off-white:#F8F7F5; --beige:#F2EDE5;
+  --text:#1A1A1A; --text-muted:#5A5A5A; --border:rgba(0,0,0,.08);
+}
+@page { size: A5 portrait; margin: 16mm 18mm 20mm 18mm; }
+@page cover { margin: 0; }
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'DM Sans',sans-serif;font-size:9.5pt;color:var(--text);background:#fff;}
+
+.page-cover{page:cover;width:148mm;height:210mm;background:var(--navy-mid);display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:20mm 16mm;position:relative;overflow:hidden;page-break-after:always;}
+.page-cover::before{content:'';position:absolute;top:0;left:0;right:0;bottom:0;background:radial-gradient(ellipse at 30% 70%,rgba(196,154,42,.12),transparent 65%);}
+.cover-inner{position:relative;z-index:1;width:100%;}
+.cover-tag{display:inline-block;background:rgba(196,154,42,.2);border:1px solid rgba(196,154,42,.4);color:var(--gold-light);font-size:7pt;font-weight:700;letter-spacing:.18em;text-transform:uppercase;padding:4px 14px;border-radius:20px;margin-bottom:16mm;}
+.cover-serie{font-size:7pt;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.45);margin-bottom:4mm;}
+.cover-num{font-family:'Playfair Display',serif;font-size:64pt;font-weight:700;color:rgba(196,154,42,.2);line-height:1;margin-bottom:4mm;display:block;}
+.cover-title{font-family:'Playfair Display',serif;font-size:18pt;font-weight:700;color:#fff;line-height:1.2;margin-bottom:6mm;}
+.cover-title em{font-style:italic;color:var(--gold-light);}
+.cover-sub{font-size:9pt;color:rgba(255,255,255,.6);line-height:1.6;max-width:100mm;margin:0 auto 12mm;}
+.cover-line{width:24mm;height:1px;background:var(--gold);margin:0 auto 6mm;opacity:.5;}
+.cover-logo{font-family:'Playfair Display',serif;font-size:11pt;font-weight:700;color:rgba(255,255,255,.7);}
+.cover-logo span{color:var(--gold);}
+.cover-logo small{display:block;font-family:'DM Sans',sans-serif;font-size:7pt;color:rgba(255,255,255,.4);letter-spacing:.12em;text-transform:uppercase;font-weight:400;margin-top:2px;}
+
+.page-break{page-break-after:always;}
+.no-break{page-break-inside:avoid;}
+
+h2{font-family:'Playfair Display',serif;font-size:15pt;font-weight:700;color:var(--navy);margin-bottom:4mm;line-height:1.2;padding-bottom:2.5mm;border-bottom:2px solid var(--gold-soft);}
+h3{font-family:'Playfair Display',serif;font-size:11.5pt;font-weight:700;color:var(--navy-mid);margin:5mm 0 2.5mm;line-height:1.3;}
+p{line-height:1.65;margin-bottom:3mm;}
+.eyebrow{font-size:6.5pt;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:2mm;display:block;}
+
+.callout{background:var(--beige);border-left:3.5px solid var(--gold);border-radius:0 7px 7px 0;padding:4mm 5mm;margin:4mm 0;}
+.callout p{margin-bottom:0;font-size:9pt;}
+.callout strong{color:var(--navy);}
+
+.alert{background:#fff3cd;border-left:3.5px solid #f0a500;border-radius:0 7px 7px 0;padding:4mm 5mm;margin:4mm 0;}
+.alert p{margin-bottom:0;font-size:9pt;}
+
+.quote-box{background:var(--navy);border-radius:8px;padding:5mm 6mm;margin:5mm 0;}
+.quote-box p{font-family:'Playfair Display',serif;font-size:9.5pt;font-style:italic;color:rgba(250,248,245,.9);margin-bottom:2mm;}
+.quote-box cite{font-size:6pt;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--gold-light);font-style:normal;}
+
+table.mt{width:100%;border-collapse:collapse;margin:4mm 0;font-size:8.5pt;}
+table.mt thead th{background:var(--navy);color:#fff;padding:3mm 4mm;text-align:left;font-weight:600;font-size:8pt;}
+table.mt tbody td{padding:2.5mm 4mm;border-bottom:1px solid var(--border);vertical-align:top;}
+table.mt tbody tr:nth-child(even) td{background:var(--off-white);}
+table.mt td:first-child{background:var(--beige) !important;font-weight:600;color:var(--navy);}
+
+ul.styled{list-style:none;padding:0;margin:2mm 0 4mm;}
+ul.styled li{padding:2mm 0 2mm 5mm;position:relative;font-size:9pt;border-bottom:1px solid var(--border);}
+ul.styled li:last-child{border-bottom:none;}
+ul.styled li::before{content:'→';position:absolute;left:0;color:var(--gold);font-weight:700;}
+
+.tributo-card{background:var(--off-white);border-radius:8px;padding:5mm 6mm;margin:4mm 0;border-top:3px solid var(--navy);}
+.tributo-card.cbs{border-top-color:#1B2B4B;}
+.tributo-card.ibs{border-top-color:#253860;}
+.tributo-card.is{border-top-color:var(--gold);}
+.tributo-card h4{font-size:9pt;font-weight:700;color:var(--navy);text-transform:uppercase;letter-spacing:.1em;margin-bottom:2mm;}
+.tributo-card .sigla{font-family:'Playfair Display',serif;font-size:22pt;font-weight:700;color:var(--gold);line-height:1;display:block;margin-bottom:2mm;}
+.tributo-card p{font-size:8.5pt;color:var(--text-muted);margin-bottom:1.5mm;}
+
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:4mm;margin:4mm 0;}
+.col-card{background:var(--off-white);border-radius:6px;padding:4mm;border-top:3px solid var(--gold);}
+.col-card h5{font-size:8pt;font-weight:700;color:var(--navy);margin-bottom:2mm;text-transform:uppercase;letter-spacing:.06em;}
+.col-card p{font-size:8pt;color:var(--text-muted);margin:0;line-height:1.5;}
+
+.nota-autor{background:var(--navy);border-radius:8px;padding:5mm 6mm;margin:5mm 0;font-size:8.5pt;color:rgba(255,255,255,.75);line-height:1.6;}
+.nota-autor strong{color:var(--gold-light);}
+
+@page{@bottom-center{content:"Grupo Barbosa — Gestão Tributária  ·  Reforma Tributária Descomplicada  ·  Módulo 2";font-size:6.5pt;color:#aaa;font-family:'DM Sans',sans-serif;}@bottom-right{content:counter(page);font-size:6.5pt;color:#aaa;font-family:'DM Sans',sans-serif;}}
+</style>
+</head>
+<body>
+
+<div class="page-cover">
+  <div class="cover-inner">
+    <span class="cover-tag">Reforma Tributária Descomplicada</span>
+    <div class="cover-serie">Módulo</div>
+    <span class="cover-num">2</span>
+    <h1 class="cover-title">CBS, IBS e <em>Imposto Seletivo</em></h1>
+    <p class="cover-sub">Os três novos tributos explicados sem juridiquês — como funcionam, quem paga e o que gera crédito</p>
+    <div class="cover-line"></div>
+    <div class="cover-logo">Grupo <span>Barbosa</span><small>Gestão Tributária</small></div>
+  </div>
+</div>
+
+<!-- INTRODUÇÃO -->
+<div class="page-break no-break">
+  <span class="eyebrow">Módulo 2 — Visão Geral</span>
+  <h2>Três tributos para substituir cinco</h2>
+  <p>O novo sistema tributário brasileiro é construído sobre três tributos. Entendê-los individualmente — e como se relacionam — é o segundo passo fundamental para qualquer planejamento.</p>
+  <p>Este módulo explica cada um deles sem juridiquês: o que é, o que substitui, quem paga, como é calculado e o que gera crédito.</p>
+
+  <table class="mt">
+    <thead>
+      <tr><th>Novo tributo</th><th>Substitui</th><th>Esfera</th><th>Gestão</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>CBS</td><td>PIS + COFINS</td><td>Federal</td><td>Receita Federal</td></tr>
+      <tr><td>IBS</td><td>ICMS + ISS</td><td>Estados + Municípios</td><td>Comitê Gestor IBS</td></tr>
+      <tr><td>IS (Imposto Seletivo)</td><td>Parte do IPI</td><td>Federal</td><td>Receita Federal</td></tr>
+    </tbody>
+  </table>
+
+  <div class="callout">
+    <p><strong>Importante:</strong> CBS e IBS têm a mesma base de cálculo e as mesmas regras de crédito. São cobrados juntos mas recolhidos separadamente. Na prática, funcionam como um IVA dual — modelo adotado em países como o Canadá.</p>
+  </div>
+
+  <div class="nota-autor">
+    <strong>📝 Introdução do autor:</strong> [Adicione aqui sua perspectiva sobre por que é fundamental que os empresários entendam esses três tributos especificamente — pode incluir o que você vê de confusão mais frequente nos seus clientes.]
+  </div>
+</div>
+
+<!-- CBS -->
+<div class="page-break">
+  <span class="eyebrow">Tributo 1 de 3</span>
+  <h2>CBS — Contribuição sobre Bens e Serviços</h2>
+
+  <div class="tributo-card cbs">
+    <span class="sigla">CBS</span>
+    <h4>Contribuição sobre Bens e Serviços</h4>
+    <p><strong>Substitui:</strong> PIS (Programa de Integração Social) e COFINS (Contribuição para o Financiamento da Seguridade Social)</p>
+    <p><strong>Esfera:</strong> Federal — gerida pela Receita Federal do Brasil</p>
+    <p><strong>Incide sobre:</strong> Operações com bens e serviços em geral</p>
+  </div>
+
+  <h3>Como funciona na prática</h3>
+  <p>A CBS funciona como um imposto sobre valor agregado (IVA) federal. Em cada etapa da cadeia produtiva, o vendedor cobra a CBS sobre o valor total da operação — mas pode deduzir (usar como crédito) a CBS paga nas etapas anteriores.</p>
+
+  <div class="two-col">
+    <div class="col-card">
+      <h5>O que era no PIS/COFINS</h5>
+      <p>PIS: 0,65% (cumulativo) ou 1,65% (não-cumulativo)<br>COFINS: 3% (cumulativo) ou 7,6% (não-cumulativo)<br>Regras diferentes por regime e setor</p>
+    </div>
+    <div class="col-card">
+      <h5>O que vira com a CBS</h5>
+      <p>Uma alíquota única (ainda a ser definida em lei complementar — estimativas apontam para ~8,8%)<br>Regras iguais para todos os setores<br>Crédito pleno de toda a cadeia</p>
+    </div>
+  </div>
+
+  <h3>O que gera crédito de CBS</h3>
+  <ul class="styled">
+    <li>Compra de mercadorias para revenda</li>
+    <li>Insumos utilizados na produção de bens ou serviços</li>
+    <li>Ativos imobilizados (proporcional)</li>
+    <li>Serviços contratados para uso na atividade</li>
+    <li>Praticamente qualquer aquisição relacionada à atividade — não cumulatividade plena</li>
+  </ul>
+
+  <div class="alert">
+    <p><strong>Diferença crítica do PIS/COFINS atual:</strong> No regime não-cumulativo atual, há listas extensas de insumos que NÃO geram crédito. Com a CBS, a lógica se inverte: quase tudo gera crédito, com exceções mínimas definidas em lei.</p>
+  </div>
+
+  <div class="nota-autor">
+    <strong>📝 Insight do autor:</strong> [Espaço para você detalhar casos práticos que já analisou — impacto da CBS em setores específicos que você atende, ou oportunidades de crédito que empresários perdem hoje com o PIS/COFINS e que a CBS vai corrigir.]
+  </div>
+</div>
+
+<!-- IBS -->
+<div class="page-break">
+  <span class="eyebrow">Tributo 2 de 3</span>
+  <h2>IBS — Imposto sobre Bens e Serviços</h2>
+
+  <div class="tributo-card ibs">
+    <span class="sigla">IBS</span>
+    <h4>Imposto sobre Bens e Serviços</h4>
+    <p><strong>Substitui:</strong> ICMS (estadual) e ISS (municipal)</p>
+    <p><strong>Esfera:</strong> Subnacional — estados e municípios, gerido pelo Comitê Gestor do IBS</p>
+    <p><strong>Incide sobre:</strong> Operações com bens e serviços — mesma base que a CBS</p>
+  </div>
+
+  <h3>O que torna o IBS diferente do ICMS e ISS</h3>
+  <ul class="styled">
+    <li><strong>Destino, não origem:</strong> o tributo vai para o estado/município onde o consumidor está, não onde a empresa está</li>
+    <li><strong>Gestão unificada:</strong> um único Comitê Gestor para todos os estados e municípios — fim das 5.000 regras de ICMS</li>
+    <li><strong>Alíquota dividida:</strong> cada estado e município define sua alíquota (dentro de limites), que se soma à alíquota de referência</li>
+    <li><strong>Não cumulativo pleno:</strong> crédito total em toda a cadeia, sem as exceções do ICMS atual</li>
+  </ul>
+
+  <h3>O split payment — como o recolhimento funciona</h3>
+  <p>O IBS (e a CBS) será recolhido majoritariamente via <strong>split payment</strong>: quando uma transação é liquidada por meio eletrônico, a instituição financeira já separa automaticamente o valor do tributo e repassa para a conta do governo. A empresa não chega a "ver" o dinheiro do imposto.</p>
+
+  <div class="callout">
+    <p><strong>Impacto do split payment:</strong> Reduz inadimplência tributária, elimina a necessidade de capital de giro para pagar o tributo (que hoje algumas empresas usam temporariamente) e aumenta a rastreabilidade.</p>
+  </div>
+
+  <h3>E o ISS do seu município?</h3>
+  <p>O ISS será extinto gradualmente e substituído pela parcela municipal do IBS. Prestadores de serviço que hoje pagam ISS entre 2% e 5% dependendo do município vão passar a pagar IBS — com crédito pleno das etapas anteriores, o que pode ser vantajoso para cadeias mais longas.</p>
+
+  <div class="nota-autor">
+    <strong>📝 Análise do autor:</strong> [Descreva aqui o impacto que você projeta para prestadores de serviços específicos — uma das maiores mudanças que o IBS traz é para serviços, que hoje pagam ISS sem crédito algum. Qual é a sua análise do impacto para este segmento?]
+  </div>
+</div>
+
+<!-- IS -->
+<div class="page-break">
+  <span class="eyebrow">Tributo 3 de 3</span>
+  <h2>Imposto Seletivo — o "sin tax" brasileiro</h2>
+
+  <div class="tributo-card is">
+    <span class="sigla">IS</span>
+    <h4>Imposto Seletivo</h4>
+    <p><strong>Substitui parcialmente:</strong> IPI (nas funções extrafiscais)</p>
+    <p><strong>Esfera:</strong> Federal — gerido pela Receita Federal</p>
+    <p><strong>Incide sobre:</strong> Bens e serviços considerados prejudiciais à saúde ou ao meio ambiente</p>
+  </div>
+
+  <h3>O que pode ser tributado pelo IS</h3>
+  <table class="mt">
+    <thead>
+      <tr><th>Categoria</th><th>Exemplos</th><th>Justificativa</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Tabaco e derivados</td><td>Cigarros, charutos, fumo</td><td>Saúde pública</td></tr>
+      <tr><td>Bebidas alcoólicas</td><td>Cerveja, destilados, vinhos</td><td>Saúde pública</td></tr>
+      <tr><td>Bebidas açucaradas</td><td>Refrigerantes, energéticos</td><td>Saúde pública</td></tr>
+      <tr><td>Veículos automotores</td><td>Carros, motos (alguns)</td><td>Meio ambiente</td></tr>
+      <tr><td>Produtos de mineração</td><td>Minérios extraídos</td><td>Meio ambiente</td></tr>
+      <tr><td>Apostas</td><td>Jogos de azar, bets</td><td>Extrafiscal</td></tr>
+    </tbody>
+  </table>
+
+  <h3>Características importantes do IS</h3>
+  <ul class="styled">
+    <li><strong>Não gera crédito:</strong> o IS pago na compra de insumos NÃO pode ser abatido das etapas seguintes da cadeia</li>
+    <li><strong>Alíquotas definidas em lei:</strong> cada categoria terá sua alíquota específica — ainda a regulamentar</li>
+    <li><strong>Função extrafiscal:</strong> não é arrecadatório principal — existe para desestimular consumo de itens prejudiciais</li>
+    <li><strong>Pode incidir na importação:</strong> produtos importados dentro das categorias também serão tributados</li>
+  </ul>
+
+  <div class="callout">
+    <p><strong>Para a maioria das empresas:</strong> o IS não será relevante. Ele afeta principalmente indústrias específicas (fumo, bebidas, mineração, veículos). Se você não está nesses setores, o IS provavelmente não impacta sua operação diretamente.</p>
+  </div>
+
+  <div class="nota-autor">
+    <strong>📝 Nota do autor:</strong> [Se você atende empresas do setor de bebidas, tabaco, mineração ou apostas, este é o espaço para detalhar o impacto do IS nessas operações com mais profundidade técnica.]
+  </div>
+</div>
+
+<!-- RESUMO E COMPARATIVO -->
+<div class="no-break">
+  <span class="eyebrow">Resumo do Módulo 2</span>
+  <h2>Os três tributos em perspectiva</h2>
+
+  <table class="mt">
+    <thead>
+      <tr><th>Característica</th><th>CBS</th><th>IBS</th><th>IS</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Esfera</td><td>Federal</td><td>Estadual/Municipal</td><td>Federal</td></tr>
+      <tr><td>Base</td><td>Bens e serviços</td><td>Bens e serviços</td><td>Produtos específicos</td></tr>
+      <tr><td>Gera crédito?</td><td>Sim — pleno</td><td>Sim — pleno</td><td>Não</td></tr>
+      <tr><td>Princípio</td><td>Destino</td><td>Destino</td><td>Origem</td></tr>
+      <tr><td>Quem gerencia</td><td>Receita Federal</td><td>Comitê Gestor IBS</td><td>Receita Federal</td></tr>
+    </tbody>
+  </table>
+
+  <div class="callout">
+    <p><strong>No próximo módulo:</strong> Como CBS, IBS e IS impactam o seu negócio especificamente — por setor (comércio, serviços, indústria, agronegócio) e por regime tributário (Simples, Presumido, Real).</p>
+  </div>
+</div>
+
+</body>
+</html>
