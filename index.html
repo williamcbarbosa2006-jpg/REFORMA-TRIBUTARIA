@@ -365,7 +365,45 @@ footer { background: var(--ink); border-top: 1px solid rgba(184,196,206,.08); pa
   .tributos-compare{grid-template-columns:1fr;gap:16px;}
   .trib-arrow{padding-top:0;font-size:20px;}
   .risk-grid{grid-template-columns:1fr;}
-}</style>
+}
+/* ── BÔNUS ── */
+.bonus-stack { margin: 28px 0 32px; }
+.bonus-stack-title {
+  font-size: 10px; font-weight: 700; letter-spacing: .18em; text-transform: uppercase;
+  color: var(--svd); margin-bottom: 14px; display: flex; align-items: center; gap: 10px;
+}
+.bonus-stack-title::before, .bonus-stack-title::after {
+  content: ''; flex: 1; height: 1px; background: var(--border);
+}
+.bonus-item {
+  display: flex; align-items: center; gap: 14px;
+  padding: 13px 16px; border-radius: 10px;
+  background: rgba(184,196,206,.04);
+  border: 1px solid rgba(184,196,206,.09);
+  margin-bottom: 8px;
+  transition: border-color .2s;
+}
+.bonus-item:hover { border-color: rgba(184,196,206,.2); }
+.bonus-ic {
+  width: 40px; height: 40px; border-radius: 10px; flex-shrink: 0;
+  background: rgba(184,196,206,.07); border: 1px solid rgba(184,196,206,.12);
+  display: flex; align-items: center; justify-content: center; font-size: 18px;
+}
+.bonus-info { flex: 1; }
+.bonus-info strong { display: block; font-size: 13px; font-weight: 700; color: rgba(255,255,255,.9); margin-bottom: 2px; }
+.bonus-info span { font-size: 11px; color: var(--muted); line-height: 1.4; }
+.bonus-val { text-align: right; flex-shrink: 0; }
+.bonus-val .bv-old { font-size: 10px; color: var(--subtle); text-decoration: line-through; display: block; }
+.bonus-val .bv-free { font-size: 12px; font-weight: 800; color: var(--sv); letter-spacing: .04em; }
+.preco-total-row {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 14px 16px; border-radius: 10px;
+  background: rgba(184,196,206,.05); border: 1px solid rgba(184,196,206,.15);
+  margin-bottom: 24px;
+}
+.preco-total-row span { font-size: 12px; font-weight: 600; color: var(--muted); letter-spacing: .04em; text-transform: uppercase; }
+.preco-total-row strong { font-size: 16px; font-weight: 800; color: var(--svl); }
+</style>
 </head>
 <body>
 <!-- ══ URGENCY BAR ══ -->
@@ -411,7 +449,7 @@ footer { background: var(--ink); border-top: 1px solid rgba(184,196,206,.08); pa
       <h1>A Maior Mudança<br>Tributária dos Últimos<br><span class="acc">30 Anos.</span></h1>
       <p class="hero-sub">CBS, IBS e Imposto Seletivo vão reconfigurar a carga tributária de toda empresa brasileira a partir de 2026. O Grupo Barbosa organizou o que você precisa entender — com profundidade técnica e clareza estratégica.</p>
       <div class="hero-btns">
-        <a href="{{CHECKOUT_URL}}" class="btn btn-white btn-lg">Garantir o Guia — R$47,00</a>
+        <a href="{{CHECKOUT_URL}}" class="btn btn-white btn-lg">Garantir o Guia — R$47,90</a>
         <a href="#modulos" class="btn btn-outline btn-lg">Ver o Conteúdo</a>
       </div>
       <p class="hero-note">7 dias de garantia<span>·</span>Acesso imediato<span>·</span>Atualizado com a EC 132/2023</p>
@@ -827,9 +865,67 @@ footer { background: var(--ink); border-top: 1px solid rgba(184,196,206,.08); pa
     </div>
     <div class="preco-box">
       <span class="preco-tag">Oferta de lançamento</span>
-      <div class="preco-old">De R$97,00</div>
-      <div class="preco-num"><sup>R$</sup>47<small>,00</small></div>
+      <div class="preco-old">Valor total do kit: R$152,70</div>
+      <div class="preco-num"><sup>R$</sup>47<small>,90</small></div>
       <div class="preco-info">Pagamento único · Acesso imediato · PDF para ler offline</div>
+            <!-- BÔNUS INCLUÍDOS -->
+      <div class="bonus-stack">
+        <div class="bonus-stack-title">Bônus exclusivos incluídos</div>
+
+        <div class="bonus-item">
+          <div class="bonus-ic">✓</div>
+          <div class="bonus-info">
+            <strong>Checklist de Adequação Tributária 2026</strong>
+            <span>Lista prática com 30+ ações divididas por fase da transição. Imprima e execute.</span>
+          </div>
+          <div class="bonus-val">
+            <span class="bv-old">R$27,00</span>
+            <span class="bv-free">GRÁTIS</span>
+          </div>
+        </div>
+
+        <div class="bonus-item">
+          <div class="bonus-ic">📖</div>
+          <div class="bonus-info">
+            <strong>Glossário da Reforma Tributária</strong>
+            <span>40+ termos técnicos da EC 132/2023 explicados em linguagem empresarial objetiva.</span>
+          </div>
+          <div class="bonus-val">
+            <span class="bv-old">R$17,00</span>
+            <span class="bv-free">GRÁTIS</span>
+          </div>
+        </div>
+
+        <div class="bonus-item">
+          <div class="bonus-ic">📊</div>
+          <div class="bonus-info">
+            <strong>Mapa de Setores em Alerta</strong>
+            <span>Infográfico com os setores mais impactados, alíquotas estimadas e pontos de atenção por regime.</span>
+          </div>
+          <div class="bonus-val">
+            <span class="bv-old">R$17,00</span>
+            <span class="bv-free">GRÁTIS</span>
+          </div>
+        </div>
+
+        <div class="bonus-item">
+          <div class="bonus-ic">📝</div>
+          <div class="bonus-info">
+            <strong>Modelo de Cláusula de Revisão Tributária</strong>
+            <span>Cláusula contratual padrão para proteger acordos de longo prazo da variação tributária da transição.</span>
+          </div>
+          <div class="bonus-val">
+            <span class="bv-old">R$44,80</span>
+            <span class="bv-free">GRÁTIS</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="preco-total-row">
+        <span>Valor total do kit</span>
+        <strong>R$152,70 → por apenas R$47,90</strong>
+      </div>
+
       <ul class="inc">
         <li><div class="ck"><svg viewBox="0 0 10 8" fill="none" width="10"><path d="M1 4l3 3 5-6" stroke="#B8C4CE" stroke-width="1.5" stroke-linecap="round"/></svg></div> Módulo 1 — A Reforma do Zero: EC 132/2023 e Cronograma</li>
         <li><div class="ck"><svg viewBox="0 0 10 8" fill="none" width="10"><path d="M1 4l3 3 5-6" stroke="#B8C4CE" stroke-width="1.5" stroke-linecap="round"/></svg></div> Módulo 2 — CBS, IBS e Imposto Seletivo Explicados</li>
@@ -898,7 +994,7 @@ footer { background: var(--ink); border-top: 1px solid rgba(184,196,206,.08); pa
     <span class="label" style="margin-bottom:20px;">Decisão estratégica</span>
     <h2>A reforma vai acontecer.<br>A pergunta é quem vai estar preparado.</h2>
     <p>Empresas que entendem o sistema tributário pagam exatamente o que devem — nem mais, nem menos. As que não entendem pagam mais. Sempre.</p>
-    <a href="{{CHECKOUT_URL}}" class="btn btn-white btn-lg">Garantir o Guia — R$47,00</a>
+    <a href="{{CHECKOUT_URL}}" class="btn btn-white btn-lg">Garantir o Guia — R$47,90</a>
     <p class="hero-note" style="margin-top:18px;">7 dias de garantia · Acesso imediato · Atualizado com EC 132/2023</p>
   </div>
 </section>
