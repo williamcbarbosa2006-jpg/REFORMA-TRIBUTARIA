@@ -372,7 +372,7 @@ footer { background: var(--ink); border-top: 1px solid rgba(184,196,206,.08); pa
 <div class="urgency-bar">
   <div class="ub-inner">
     <span class="ub-dot"></span>
-    <span class="ub-text">Início da fase dual CBS + IBS:</span>
+    <span class="ub-text">Preço de lançamento disponível por:</span>
     <div class="ub-timer">
       <div class="ub-unit"><span id="ub-d">--</span><small>dias</small></div>
       <div class="ub-sep">:</div>
@@ -924,22 +924,32 @@ footer { background: var(--ink); border-top: 1px solid rgba(184,196,206,.08); pa
 
 <script>
 (function(){
-  var target = new Date('2026-07-01T00:00:00').getTime();
+  var SESSION_KEY = 'gb_session_expire';
+  var DURATION = 20 * 60; // 20 minutos reais de sessao
+  var expire = sessionStorage.getItem(SESSION_KEY);
+  if(!expire){
+    expire = Date.now() + DURATION * 1000;
+    sessionStorage.setItem(SESSION_KEY, expire);
+  }
+  expire = parseInt(expire);
+
+  // Esconder campo "dias" — nao faz sentido num timer de sessao
+  var dUnit = document.getElementById('ub-d');
+  if(dUnit){ dUnit.closest('.ub-unit').style.display='none'; }
+  var sep1 = document.querySelector('.ub-sep');
+  if(sep1){ sep1.style.display='none'; }
+
   function update(){
-    var now = new Date().getTime();
-    var diff = target - now;
-    if(diff <= 0){
-      ['ub-d','ub-h','ub-m','ub-s'].forEach(function(id){ document.getElementById(id).textContent='00'; });
-      return;
-    }
-    var d = Math.floor(diff / 86400000);
-    var h = Math.floor((diff % 86400000) / 3600000);
+    var diff = Math.max(0, expire - Date.now());
+    var h = Math.floor(diff / 3600000);
     var m = Math.floor((diff % 3600000) / 60000);
     var s = Math.floor((diff % 60000) / 1000);
-    document.getElementById('ub-d').textContent = d < 10 ? '0'+d : ''+d;
-    document.getElementById('ub-h').textContent = h < 10 ? '0'+h : ''+h;
-    document.getElementById('ub-m').textContent = m < 10 ? '0'+m : ''+m;
-    document.getElementById('ub-s').textContent = s < 10 ? '0'+s : ''+s;
+    var elH = document.getElementById('ub-h');
+    var elM = document.getElementById('ub-m');
+    var elS = document.getElementById('ub-s');
+    if(elH) elH.textContent = h < 10 ? '0'+h : ''+h;
+    if(elM) elM.textContent = m < 10 ? '0'+m : ''+m;
+    if(elS) elS.textContent = s < 10 ? '0'+s : ''+s;
   }
   update();
   setInterval(update, 1000);
