@@ -40,7 +40,7 @@ section { padding: 96px 0; }
 
 /* ── HEADER ── */
 .hdr {
-  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  position: fixed; top: 46px; left: 0; right: 0; z-index: 100;
   height: 220px; padding: 0 40px;
   display: flex; align-items: center; justify-content: space-between;
   background: rgba(6,15,27,.9);
@@ -295,9 +295,97 @@ footer { background: var(--ink); border-top: 1px solid rgba(184,196,206,.08); pa
   .gar-inner { flex-direction: column; text-align: center; }
   .footer-row { flex-direction: column; align-items: center; text-align: center; }
 }
-</style>
+
+/* ── URGENCY BAR ── */
+.urgency-bar{background:rgba(8,22,38,.97);border-bottom:1px solid rgba(184,196,206,.13);padding:10px 0;position:fixed;top:0;left:0;right:0;z-index:200;}
+.ub-inner{max-width:1100px;margin:0 auto;padding:0 40px;display:flex;align-items:center;justify-content:center;gap:18px;flex-wrap:wrap;}
+.ub-dot{width:7px;height:7px;border-radius:50%;background:var(--sv);box-shadow:0 0 8px rgba(184,196,206,.6);flex-shrink:0;animation:pulse-dot 2s infinite;}
+@keyframes pulse-dot{0%,100%{opacity:1;box-shadow:0 0 8px rgba(184,196,206,.6);}50%{opacity:.5;box-shadow:0 0 14px rgba(184,196,206,.3);}}
+.ub-text{font-size:12px;font-weight:500;color:var(--muted);letter-spacing:.04em;white-space:nowrap;}
+.ub-timer{display:flex;align-items:center;gap:6px;}
+.ub-unit{display:flex;flex-direction:column;align-items:center;background:rgba(184,196,206,.07);border:1px solid rgba(184,196,206,.12);border-radius:6px;padding:4px 10px;min-width:42px;}
+.ub-unit span{font-size:15px;font-weight:800;color:var(--svl);letter-spacing:-.01em;font-variant-numeric:tabular-nums;line-height:1;}
+.ub-unit small{font-size:8px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--svd);margin-top:2px;}
+.ub-sep{font-size:14px;font-weight:700;color:var(--svd);margin-bottom:6px;}
+.ub-cta-link{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--sv);border:1px solid rgba(184,196,206,.25);border-radius:20px;padding:5px 14px;transition:all .2s;white-space:nowrap;}
+.ub-cta-link:hover{background:var(--svf);color:var(--svl);}
+
+/* ── TIMELINE ── */
+.timeline-sec{background:var(--bg3);border-top:1px solid var(--border);border-bottom:1px solid var(--border);}
+.tl-track{position:relative;margin-top:56px;}
+.tl-line{position:absolute;top:22px;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--border) 8%,var(--border) 92%,transparent);}
+.tl-items{display:grid;grid-template-columns:repeat(7,1fr);gap:0;position:relative;}
+.tl-item{display:flex;flex-direction:column;align-items:center;padding:0 8px;text-align:center;}
+.tl-dot{width:14px;height:14px;border-radius:50%;border:2px solid var(--svd);background:var(--bg3);flex-shrink:0;margin-bottom:14px;transition:border-color .2s;}
+.tl-item.active .tl-dot{background:var(--sv);border-color:var(--sv);box-shadow:0 0 12px rgba(184,196,206,.4);}
+.tl-item.future .tl-dot{border-color:var(--border);}
+.tl-year{font-size:11px;font-weight:800;letter-spacing:.06em;color:var(--sv);margin-bottom:6px;}
+.tl-item.future .tl-year{color:var(--subtle);}
+.tl-desc{font-size:11px;line-height:1.5;color:var(--muted);}
+.tl-item.active .tl-desc{color:rgba(255,255,255,.8);}
+
+/* ── O QUE MUDA ── */
+.muda-sec{background:var(--bg);}
+.tributos-compare{display:grid;grid-template-columns:1fr 64px 1fr;gap:0;align-items:start;margin-top:48px;}
+.trib-col{background:var(--card);border:1px solid var(--border);border-radius:var(--r);padding:32px;}
+.trib-col h4{font-size:11px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;margin-bottom:20px;}
+.trib-col.old h4{color:rgba(255,100,100,.7);}
+.trib-col.new h4{color:var(--sv);}
+.trib-item{display:flex;align-items:flex-start;gap:12px;padding:12px 0;border-bottom:1px solid var(--border);}
+.trib-item:last-child{border-bottom:none;}
+.trib-ic{width:34px;height:34px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:800;flex-shrink:0;}
+.trib-col.old .trib-ic{background:rgba(255,80,80,.08);color:rgba(255,100,100,.8);}
+.trib-col.new .trib-ic{background:var(--svf);color:var(--sv);}
+.trib-info strong{display:block;font-size:13px;font-weight:700;margin-bottom:2px;}
+.trib-info span{font-size:11px;color:var(--muted);}
+.trib-arrow{display:flex;align-items:center;justify-content:center;font-size:24px;color:var(--svd);padding-top:120px;}
+
+/* ── RISCOS ── */
+.risk-sec{background:var(--bg2);border-top:1px solid var(--border);}
+.risk-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:48px;}
+.risk-card{background:rgba(180,30,30,.05);border:1px solid rgba(200,50,50,.15);border-radius:var(--r);padding:28px 24px;}
+.risk-card .risk-ic{font-size:28px;margin-bottom:14px;}
+.risk-card h4{font-size:14px;font-weight:700;color:rgba(255,180,180,.9);margin-bottom:8px;}
+.risk-card p{font-size:13px;color:var(--muted);line-height:1.65;}
+
+/* ── ALÍQUOTAS ── */
+.aliq-sec{background:var(--bg);}
+.aliq-table{width:100%;border-collapse:collapse;margin-top:40px;font-size:13px;}
+.aliq-table thead th{background:var(--bg3);color:var(--sv);font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;padding:12px 16px;text-align:left;border-bottom:1px solid var(--border);}
+.aliq-table tbody td{padding:13px 16px;border-bottom:1px solid var(--border);color:var(--muted);vertical-align:top;}
+.aliq-table tbody tr:hover td{background:var(--card);}
+.aliq-table tbody td:first-child{color:rgba(255,255,255,.85);font-weight:600;}
+.badge-aliq{display:inline-block;background:var(--svf);border:1px solid var(--svg);color:var(--svl);font-size:11px;font-weight:700;padding:2px 8px;border-radius:4px;}
+.badge-red{background:rgba(200,50,50,.08);border-color:rgba(200,50,50,.2);color:rgba(255,150,150,.9);}
+.badge-green{background:rgba(50,180,100,.08);border-color:rgba(50,180,100,.2);color:rgba(100,220,140,.9);}
+
+@media(max-width:768px){
+  .tl-items{grid-template-columns:1fr 1fr;gap:24px;}
+  .tl-line{display:none;}
+  .tributos-compare{grid-template-columns:1fr;gap:16px;}
+  .trib-arrow{padding-top:0;font-size:20px;}
+  .risk-grid{grid-template-columns:1fr;}
+}</style>
 </head>
 <body>
+<!-- ══ URGENCY BAR ══ -->
+<div class="urgency-bar">
+  <div class="ub-inner">
+    <span class="ub-dot"></span>
+    <span class="ub-text">Início da fase dual CBS + IBS:</span>
+    <div class="ub-timer">
+      <div class="ub-unit"><span id="ub-d">--</span><small>dias</small></div>
+      <div class="ub-sep">:</div>
+      <div class="ub-unit"><span id="ub-h">--</span><small>horas</small></div>
+      <div class="ub-sep">:</div>
+      <div class="ub-unit"><span id="ub-m">--</span><small>min</small></div>
+      <div class="ub-sep">:</div>
+      <div class="ub-unit"><span id="ub-s">--</span><small>seg</small></div>
+    </div>
+    <a href="#preco" class="ub-cta-link">Garantir acesso →</a>
+  </div>
+</div>
+
 
 <!-- ══ HEADER ══ -->
 <header class="hdr">
@@ -384,6 +472,219 @@ footer { background: var(--ink); border-top: 1px solid rgba(184,196,206,.08); pa
 </section>
 
 <!-- ══ MÓDULOS ══ -->
+
+<!-- ══ TIMELINE DA REFORMA ══ -->
+<section class="timeline-sec">
+  <div class="wrap">
+    <div class="sh">
+      <span class="label">Calendário oficial</span>
+      <h2>A Transição que Ninguém Pode Ignorar</h2>
+      <p>A EC 132/2023 estabeleceu um cronograma preciso de implementação. Entender cada fase é essencial para antecipar decisões estratégicas com o tempo certo.</p>
+    </div>
+    <div class="tl-track">
+      <div class="tl-line"></div>
+      <div class="tl-items">
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-year">Dez 2023</div>
+          <div class="tl-desc">EC 132/2023 aprovada. Reforma constitucional promulgada.</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-year">2024–2025</div>
+          <div class="tl-desc">Legislação complementar aprovada. Regulamentação do CBS, IBS e IS.</div>
+        </div>
+        <div class="tl-item active">
+          <div class="tl-dot"></div>
+          <div class="tl-year">2026 ← Agora</div>
+          <div class="tl-desc">Início da fase dual. CBS e IBS coexistem com o sistema atual. Alíquota de teste.</div>
+        </div>
+        <div class="tl-item future">
+          <div class="tl-dot"></div>
+          <div class="tl-year">2027–2028</div>
+          <div class="tl-desc">Elevação progressiva das alíquotas CBS e IBS. PIS/COFINS ainda em vigor.</div>
+        </div>
+        <div class="tl-item future">
+          <div class="tl-dot"></div>
+          <div class="tl-year">2029</div>
+          <div class="tl-desc">Extinção do IPI (exceto Zona Franca de Manaus). Redução de PIS/COFINS.</div>
+        </div>
+        <div class="tl-item future">
+          <div class="tl-dot"></div>
+          <div class="tl-year">2030–2032</div>
+          <div class="tl-desc">Extinção gradual do ICMS e ISS. Alíquotas CBS/IBS atingem o nível definitivo.</div>
+        </div>
+        <div class="tl-item future">
+          <div class="tl-dot"></div>
+          <div class="tl-year">Jan 2033</div>
+          <div class="tl-desc">Sistema totalmente novo em vigor. Nenhum tributo do modelo antigo subsiste.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ O QUE MUDA DE FATO ══ -->
+<section class="muda-sec">
+  <div class="wrap">
+    <div class="sh">
+      <span class="label">A substituição tributária</span>
+      <h2>5 Tributos Extintos.<br>3 Tributos Novos.</h2>
+      <p>O sistema atual é fragmentado, cumulativo e repleto de sobreposições. A reforma unifica a tributação sobre consumo em três tributos com lógica não-cumulativa plena.</p>
+    </div>
+    <div class="tributos-compare">
+      <div class="trib-col old">
+        <h4>Sistema Atual — Extintos até 2033</h4>
+        <div class="trib-item">
+          <div class="trib-ic">PIS</div>
+          <div class="trib-info"><strong>PIS</strong><span>Programa de Integração Social — federal</span></div>
+        </div>
+        <div class="trib-item">
+          <div class="trib-ic">COF</div>
+          <div class="trib-info"><strong>COFINS</strong><span>Contribuição sobre Faturamento — federal</span></div>
+        </div>
+        <div class="trib-item">
+          <div class="trib-ic">IPI</div>
+          <div class="trib-info"><strong>IPI</strong><span>Imposto sobre Produtos Industrializados — federal</span></div>
+        </div>
+        <div class="trib-item">
+          <div class="trib-ic">ICM</div>
+          <div class="trib-info"><strong>ICMS</strong><span>Imposto sobre Circulação de Mercadorias — estadual</span></div>
+        </div>
+        <div class="trib-item">
+          <div class="trib-ic">ISS</div>
+          <div class="trib-info"><strong>ISS</strong><span>Imposto sobre Serviços — municipal</span></div>
+        </div>
+      </div>
+      <div class="trib-arrow">→</div>
+      <div class="trib-col new">
+        <h4>Sistema Novo — Em vigor a partir de 2026</h4>
+        <div class="trib-item">
+          <div class="trib-ic">CBS</div>
+          <div class="trib-info"><strong>CBS</strong><span>Contribuição sobre Bens e Serviços — federal. Substitui PIS, COFINS e IPI.</span></div>
+        </div>
+        <div class="trib-item">
+          <div class="trib-ic">IBS</div>
+          <div class="trib-info"><strong>IBS</strong><span>Imposto sobre Bens e Serviços — estadual e municipal. Substitui ICMS e ISS.</span></div>
+        </div>
+        <div class="trib-item">
+          <div class="trib-ic">IS</div>
+          <div class="trib-info"><strong>Imposto Seletivo</strong><span>Incide sobre bens e serviços prejudiciais à saúde ou ao meio ambiente.</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ RISCOS ══ -->
+<section class="risk-sec">
+  <div class="wrap">
+    <div class="sh">
+      <span class="label">Atenção empresarial</span>
+      <h2>O Custo de Não se Preparar</h2>
+      <p>Empresas que entrarem na transição sem planejamento enfrentarão pressões simultâneas de caixa, margem e conformidade que poderiam ser evitadas com antecedência.</p>
+    </div>
+    <div class="risk-grid">
+      <div class="risk-card">
+        <div class="risk-ic">⚠</div>
+        <h4>Precificação Descalibrada</h4>
+        <p>O novo sistema altera a base de cálculo e a cadeia de créditos. Empresas que não revisarem contratos e tabelas de preços antes de 2027 podem ter margens corroídas sem perceber.</p>
+      </div>
+      <div class="risk-card">
+        <div class="risk-ic">⚠</div>
+        <h4>Perda de Competitividade no Simples</h4>
+        <p>Empresas do Simples Nacional que vendem para outras empresas (B2B) podem perder negócios para concorrentes do Lucro Presumido — que agora transferem crédito de IBS/CBS.</p>
+      </div>
+      <div class="risk-card">
+        <div class="risk-ic">⚠</div>
+        <h4>Contratos de Longo Prazo Desatualizados</h4>
+        <p>Contratos firmados hoje sem cláusula de revisão tributária podem se tornar deficitários quando as alíquotas do IBS/CBS atingirem o nível pleno entre 2029 e 2032.</p>
+      </div>
+      <div class="risk-card">
+        <div class="risk-ic">⚠</div>
+        <h4>Regime Tributário Inadequado</h4>
+        <p>A reforma muda o equilíbrio entre regimes. Empresas no Lucro Presumido ou Simples devem reavaliar se continuam no regime mais vantajoso — o cálculo mudou.</p>
+      </div>
+      <div class="risk-card">
+        <div class="risk-ic">⚠</div>
+        <h4>Dupla Tributação na Fase Dual</h4>
+        <p>Entre 2026 e 2032, coexistem o sistema antigo e o novo. Sem uma estratégia clara de aproveitamento de créditos, a empresa pode ser tributada em duplicidade desnecessariamente.</p>
+      </div>
+      <div class="risk-card">
+        <div class="risk-ic">⚠</div>
+        <h4>Imposto Seletivo Ignorado</h4>
+        <p>Setores como alimentos ultraprocessados, bebidas alcoólicas, tabaco e combustíveis fósseis já têm incidência do IS mapeada. Ignorar esse custo é um erro estratégico grave.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ ALÍQUOTAS E IMPACTO ══ -->
+<section class="aliq-sec">
+  <div class="wrap">
+    <div class="sh">
+      <span class="label">Dados técnicos</span>
+      <h2>Alíquotas, Setores e Impacto Real</h2>
+      <p>A alíquota padrão estimada do IBS + CBS é de 26,5% sobre o consumo. Mas o impacto real varia drasticamente por setor, regime e estrutura de cadeia.</p>
+    </div>
+    <table class="aliq-table">
+      <thead>
+        <tr>
+          <th>Setor / Regime</th>
+          <th>Situação Atual</th>
+          <th>Impacto Pós-Reforma</th>
+          <th>Alerta</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Serviços — Lucro Presumido</td>
+          <td>ISS 2–5% + PIS/COFINS 3,65%</td>
+          <td>IBS + CBS estimado 26,5% com crédito pleno</td>
+          <td><span class="badge-aliq badge-red">Alto impacto</span></td>
+        </tr>
+        <tr>
+          <td>Comércio Varejista</td>
+          <td>ICMS 12–18% + PIS/COFINS cumulativo</td>
+          <td>Crédito ampliado na cadeia. Potencial redução de carga</td>
+          <td><span class="badge-aliq badge-green">Oportunidade</span></td>
+        </tr>
+        <tr>
+          <td>Indústria — Lucro Real</td>
+          <td>IPI + ICMS + PIS/COFINS não-cumulativo</td>
+          <td>Transição mais suave. Créditos mantidos e ampliados</td>
+          <td><span class="badge-aliq">Neutro a positivo</span></td>
+        </tr>
+        <tr>
+          <td>Simples Nacional — B2B</td>
+          <td>Alíquotas reduzidas sem transferência de crédito</td>
+          <td>Competitividade reduzida vs. Lucro Presumido que transfere crédito IBS/CBS</td>
+          <td><span class="badge-aliq badge-red">Reavaliar regime</span></td>
+        </tr>
+        <tr>
+          <td>Agronegócio</td>
+          <td>Imunidades e isenções variadas</td>
+          <td>Imunidade do IBS/CBS na produção agropecuária mantida. IS em defensivos agrícolas</td>
+          <td><span class="badge-aliq">Monitorar IS</span></td>
+        </tr>
+        <tr>
+          <td>Construção Civil</td>
+          <td>RET ou regime normal com ICMS/ISS complexo</td>
+          <td>Unificação simplifica, mas requer revisão de contratos e orçamentos</td>
+          <td><span class="badge-aliq badge-red">Revisar contratos</span></td>
+        </tr>
+        <tr>
+          <td>Serviços Financeiros</td>
+          <td>IOF + tributos específicos. Sem créditos</td>
+          <td>Regime específico. Tributação diferenciada com alíquota própria a ser regulamentada</td>
+          <td><span class="badge-aliq badge-red">Aguardar regulamentação</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+
 <section class="modulos" id="modulos">
   <div class="wrap">
     <div class="sh">
@@ -621,5 +922,28 @@ footer { background: var(--ink); border-top: 1px solid rgba(184,196,206,.08); pa
   </div>
 </footer>
 
+<script>
+(function(){
+  var target = new Date('2026-07-01T00:00:00').getTime();
+  function update(){
+    var now = new Date().getTime();
+    var diff = target - now;
+    if(diff <= 0){
+      ['ub-d','ub-h','ub-m','ub-s'].forEach(function(id){ document.getElementById(id).textContent='00'; });
+      return;
+    }
+    var d = Math.floor(diff / 86400000);
+    var h = Math.floor((diff % 86400000) / 3600000);
+    var m = Math.floor((diff % 3600000) / 60000);
+    var s = Math.floor((diff % 60000) / 1000);
+    document.getElementById('ub-d').textContent = d < 10 ? '0'+d : ''+d;
+    document.getElementById('ub-h').textContent = h < 10 ? '0'+h : ''+h;
+    document.getElementById('ub-m').textContent = m < 10 ? '0'+m : ''+m;
+    document.getElementById('ub-s').textContent = s < 10 ? '0'+s : ''+s;
+  }
+  update();
+  setInterval(update, 1000);
+})();
+</script>
 </body>
 </html>
